@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c6f4a04d-c4d9-4992-b8d3-e1c0f5ffdfe9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/common/font/font.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/font/站酷庆科黄油体.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/img/tu1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/img/tu1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/img/tu2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/img/tu3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/img/tu3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/img/tu4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/img/tu4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/img/tu5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/img/tu5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/img/tu6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sys/basic/DepMana.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sys/basic/EcMana.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sys/basic/JobLevelMana.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sys/basic/PermissMana.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sys/basic/PosMana.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sys/cfg/Amanagement.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sys/cfg/Announcementtoedit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/menus.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Login.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/emp/EmpAdv.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/emp/EmpBasic.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/main.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/per/PerEc.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/per/PerEmp.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/per/PerMv.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/per/PerSalary.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/per/PerTrain.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/sal/SalMonth.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/sal/SalSearch.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/sal/SalSob.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/sal/SalSobCfg.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/sal/SalTable.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/sta/StaAll.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/sta/StaPers.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/sta/StaRecord.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/sta/StaScore.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/sys/SysBasic.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/sys/SysCfg.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/sys/SysData.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/sys/SysHr.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/sys/SysInit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/sys/SysLog.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1U9m2AA5IO3KXJVdgHBI0Hsuq0I" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/common/img" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="F:\webStorm\vuehr\node_modules\prettier" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\webStorm\vuehr\src\common\img" />
+      <recent name="F:\webStorm\vuehr\src\common\font" />
+      <recent name="F:\webStorm\vuehr\src\views\sta" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\webStorm\vuehr\src\common\img" />
+      <recent name="F:\webStorm\vuehr\src\views\sal" />
+      <recent name="F:\webStorm\vuehr\src\components\sta" />
+      <recent name="F:\webStorm\vuehr\src\components\sys\basic" />
+      <recent name="F:\webStorm\vuehr\src\components\sys" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="npm.server">
+    <configuration name="main.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/main.js" working-dir="$PROJECT_DIR$/src">
+      <method v="2" />
+    </configuration>
+    <configuration name="server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.main.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c6f4a04d-c4d9-4992-b8d3-e1c0f5ffdfe9" name="Default Changelist" comment="" />
+      <created>1574776975464</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574776975464</updated>
+      <workItem from="1574776984323" duration="1792000" />
+      <workItem from="1574778861385" duration="1395000" />
+      <workItem from="1575989062183" duration="7665000" />
+      <workItem from="1576490502052" duration="1219000" />
+      <workItem from="1576572826554" duration="837000" />
+      <workItem from="1576576704372" duration="11077000" />
+      <workItem from="1576758464110" duration="57576000" />
+      <workItem from="1576918883549" duration="34803000" />
+      <workItem from="1577009068917" duration="48430000" />
+      <workItem from="1577098633663" duration="18372000" />
+      <workItem from="1577158218073" duration="4016000" />
+      <workItem from="1577234149481" duration="76685000" />
+      <workItem from="1577364924410" duration="139719000" />
+      <workItem from="1577703836756" duration="18725000" />
+      <workItem from="1577766749372" duration="61447000" />
+      <workItem from="1577948355806" duration="53090000" />
+      <workItem from="1578097185699" duration="16000" />
+      <workItem from="1578098753277" duration="610000" />
+      <workItem from="1578101783455" duration="324000" />
+    </task>
+    <task id="LOCAL-00001" summary="第一次">
+      <created>1576021292026</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1576021292027</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="第一次" />
+    <option name="LAST_COMMIT_MESSAGE" value="第一次" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/views/Home.vue</url>
+          <line>241</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/sys/basic/PosMana.vue</url>
+          <line>2</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/sys/basic/PosMana.vue</url>
+          <line>161</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/sys/basic/JobLevelMana.vue</url>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/sys/basic/PermissMana.vue</url>
+          <line>172</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/sys/basic/PermissMana.vue</url>
+          <line>59</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/sys/basic/PermissMana.vue</url>
+          <line>63</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/sys/basic/PermissMana.vue</url>
+          <line>259</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/sys/basic/EcMana.vue</url>
+          <line>100</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/sys/basic/PermissMana.vue</url>
+          <line>29</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/views/emp/EmpBasic.vue</url>
+          <line>820</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/views/emp/EmpBasic.vue</url>
+          <line>294</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/views/emp/EmpBasic.vue</url>
+          <line>49</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/views/sal/SalSob.vue</url>
+          <line>136</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/views/sal/SalSob.vue</url>
+          <line>6</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/views/sal/SalSobCfg.vue</url>
+          <line>20</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
