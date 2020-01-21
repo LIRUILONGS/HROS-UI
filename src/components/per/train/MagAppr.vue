@@ -29,7 +29,6 @@
                     height="690"
                     v-loading.fullscreen.lock="loading"
                     element-loading-spinner="fa fa-spinner fa-pulse fa-3x fa-fw"
-                    :customClass="loadingstyle"
                     style="width: 100%;height: 695px"
                     @selection-change="handleSelectionChange">
 
@@ -319,6 +318,14 @@ export default {
         url += "&name=" + this.keyword;
       }
       /*数据 返回*/
+        this.$notify.success({
+          title: '系统讯息',
+          message: ' 考 评 信 息 加 载 中...',
+          showClose: false,
+          offset: 200,
+          duration: 4000,
+          customClass: 'fontclass'
+        });
       this.getRequest(url).then(resp => {
         this.loading = false;
         if (resp) {

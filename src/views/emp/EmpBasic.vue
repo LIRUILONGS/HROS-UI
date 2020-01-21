@@ -432,7 +432,7 @@
           </div>
           <span slot="footer"
                 class="dialog-footer">
-            <el-button @click="dialogVisible = false">取 消</el-button>
+            <el-button @click="quxiao">取 消</el-button>
             <el-button type="primary"
                        @click="doAddEmp">确 定</el-button>
           </span>
@@ -577,16 +577,13 @@
               </template>
             </el-table-column>
             <el-table-column fixed="right"
-                             width="220"
+                             width="150"
                              label="操作">
               <template slot-scope="scope">
                 <el-button 
                            @click="showEditEmpView(scope.row)"
                            style="padding: 3px">编辑
                 </el-button>
-                <el-button 
-                           style="padding: 3px"
-                           type="primary">查看高级资料</el-button>
                 <el-button 
                            @click="deleteEmp(scope.row)"
                            style="padding: 3px"
@@ -739,6 +736,17 @@ export default {
     this.initPositions();
   },
   methods: {
+    quxiao(){
+      this.dialogVisible = false;
+       this.$notify.info({
+          title: '修改讯息',
+          message: '以 取 消 操作 ',
+          showClose: false,
+          offset: 100,
+          duration: 4000,
+          customClass: 'fontclass'
+        });
+    },
     deleteMany () {
       this.$confirm('此操作将永久删除【' + this.multipleSelection.length + '】条记录, 是否继续?', '提示', {
         confirmButtonText: '确定',

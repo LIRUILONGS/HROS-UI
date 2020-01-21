@@ -54,24 +54,7 @@
                              align="left"
                              label="电话号码">
             </el-table-column>
-            <!-- <el-table-column prop="begincontract"
-                             align="left"
-                             width="120"
-                             label="合同起始日期">
-            </el-table-column>
-            <el-table-column prop="endcontract"
-                             align="left"
-                             width="120"
-                             label="合同截止日期">
-            </el-table-column>
-            <el-table-column align="left"
-                             width="120"
-                             label="合同期限">
-              <template slot-scope="scope">
-                <el-tag size="mini">{{scope.row.contractterm}}</el-tag>
-                年
-              </template>
-            </el-table-column> -->
+            <!--  -->
             <el-table-column prop="employeetrainList.traincontent"
                              align="left"
                              label="培训内容">
@@ -93,7 +76,7 @@
             </el-table-column>
             <el-table-column prop="employeetrainList.trainstatus"
                              align="left"
-                             width="500"
+                             width="300"
                              label="培训进度">
               <template slot-scope="scope">
 
@@ -353,6 +336,14 @@ export default {
         url += "&name=" + this.keyword;
       }
       /*数据 返回*/
+        this.$notify.success({
+          title: '系统讯息',
+          message: ' 培 训 信 息 加 载 中...',
+          showClose: false,
+          offset: 150,
+          duration: 4000,
+          customClass: 'fontclass'
+        });
       this.getRequest(url).then(resp => {
         this.loading = false;
         if (resp) {

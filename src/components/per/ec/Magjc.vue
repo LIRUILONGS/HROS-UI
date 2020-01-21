@@ -1,5 +1,3 @@
-
-
 <template>
   <div>
     <div class="top-style">
@@ -270,6 +268,14 @@ export default {
         url += "&name=" + this.keyword;
       }
       /*数据 返回*/
+       this.$notify.success({
+          title: '系统讯息',
+          message: ' 员 工 信 息 加 载 中...',
+          showClose: false,
+          offset: 100,
+          duration: 2000,
+          customClass: 'fontclass'
+        });
       this.getRequest(url).then(resp => {
         this.loading = false;
         if (resp) {

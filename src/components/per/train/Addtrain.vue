@@ -102,7 +102,7 @@
               </template>
             </el-table-column>
             <el-table-column align="center">
-              <template slot="header"
+              <template slot="header" slot-scope="scope"
                         >
                 <el-input placeholder="请输入员工名进行搜索"
                           prefix-icon="el-icon-search"

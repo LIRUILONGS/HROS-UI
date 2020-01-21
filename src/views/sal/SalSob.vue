@@ -212,7 +212,7 @@ export default {
       },
       dialogVisible: false,
       tempsalary: [],
-      loading:false,
+      loading: false,
       updatedialogVisible: false,
       dialogTitle: '添加工资账套',
       salaries: [],
@@ -277,7 +277,14 @@ export default {
           }
         })
       }).catch(() => {
-        this.$message.info("取消删除!");
+        this.$notify.info({
+          title: '删除讯息',
+          message: '删 除 取 消',
+          showClose: false,
+          offset: 100,
+          duration: 2000,
+          customClass: 'fontclass'
+        });
       })
     },
     preStep () {
@@ -293,6 +300,14 @@ export default {
     updatestep () {
       this.$refs['empform'].validate((valid) => {
         if (valid) {
+          this.$notify.success({
+            title: '修改讯息',
+            message: ' 修 改 套 账 中...',
+            showClose: false,
+            offset: 100,
+            duration: 2000,
+            customClass: 'fontclass'
+          });
           this.putRequest("/salary/sob/", this.salary).then(resp => {
             if (resp) {
               this.initSalaries();
@@ -314,6 +329,14 @@ export default {
     nextStep () {
       if (this.activeItemIndex == 11) {
         if (this.salary.id) {
+          this.$notify.success({
+            title: '修改讯息',
+            message: ' 修 改 套 账 中...',
+            showClose: false,
+            offset: 100,
+            duration: 2000,
+            customClass: 'fontclass'
+          });
           this.putRequest("/salary/sob/", this.salary).then(resp => {
             if (resp) {
               this.initSalaries();
@@ -321,6 +344,14 @@ export default {
             }
           })
         } else {
+          this.$notify.success({
+            title: '添加讯息',
+            message: '添 加 工 资 套 账 中...',
+            showClose: false,
+            offset: 100,
+            duration: 4000,
+            customClass: 'fontclass'
+          });
           this.postRequest("/salary/sob/", this.salary).then(resp => {
             if (resp) {
               this.initSalaries();
@@ -352,11 +383,21 @@ export default {
       this.dialogVisible = true;
     },
     initSalaries () {
-        this.loading = true;
+      setTimeout(() => {
+        this.$notify.success({
+          title: '系统讯息',
+          message: '工 资 套 账 信 息 加 载 中...',
+          showClose: false,
+          offset: 100,
+          duration: 4000,
+          customClass: 'fontclass'
+        });
+      }, 1100);
+      this.loading = true;
       this.getRequest("/salary/sob/").then(resp => {
         if (resp) {
-        this.salaries = resp;
-        this.loading = false;
+          this.salaries = resp;
+          this.loading = false;
         }
       })
     }
@@ -364,5 +405,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
+.fontclass {
+  font-family: 站酷庆科黄油体;
+}
 </style>

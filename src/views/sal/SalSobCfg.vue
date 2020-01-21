@@ -203,6 +203,14 @@ export default {
     },
     hidePop (data) {
       if (this.currentSalary) {
+           this.$notify.success({
+            title: '修改讯息',
+            message: ' 修 改 工 资 套 账 中...',
+            showClose: false,
+            offset: 100,
+            duration: 2000,
+            customClass: 'fontclass'
+          });
         this.putRequest('/salary/sobcfg/?eid=' + data.id + '&sid=' + this.currentSalary).then(resp => {
           if (resp) {
             this.initEmps()
@@ -225,6 +233,16 @@ export default {
       })
     },
     initEmps () {
+        setTimeout(() => {
+        this.$notify.success({
+          title: '系统讯息',
+          message: '工 资 套 账 信 息 加 载 中...',
+          showClose: false,
+          offset: 100,
+          duration: 4000,
+          customClass: 'fontclass'
+        });
+      }, 1100);
         this.loading = true;
       this.getRequest("/salary/sobcfg/?page=" + this.page + '&size=' + this.size).then(resp => {
         if (resp) {

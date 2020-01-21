@@ -1,20 +1,16 @@
 <template>
   <div>
-    <div style="margin-top:30px;display:flex ;justify-content: center;">
+    <div style="margin-top:30px;display:flex ;justify-content: center;"
+         v-loading.fullscreen.lock="loading"
+         element-loading-spinner="fa fa-spinner fa-pulse fa-3x fa-fw">
       <div style="width:1500px">
-        <el-carousel indicator-position="outside"   
-                     height="740px"
-                     style="overflow-y: hidden;padding-bottom:30px;">
-          <el-carousel-item v-for="(item,index) in datas"
-                            :key="index"
-                            style="">
-            <ve-line :data="item.chartData"
-                     :settings="item.chartSettings"
-                     height="700px"
-                     width="100%"
-                     :judge-width="true"></ve-line>
-          </el-carousel-item>
-        </el-carousel>
+
+       <ve-bar :data="chartData"
+                 :settings="chartSettings" :extend="extend"
+                 height="700px"
+                 width="100%"
+                 :judge-width="true"></ve-bar>
+
       </div>
     </div>
   </div>
@@ -24,67 +20,57 @@
 export default {
   name: "StaScore",
   data () {
-    return {
-      datas: [
-        {
-          chartSettings: {
-            metrics: ['访问用户', '下单用户'],
-            dimension: ['日期']
-          },
-          chartData: {
-            columns: ['日期', '访问用户', '下单用户', '下单率'],
-            rows: [
-              { '日期': '1/1', '访问用户': 1393, '下单用户': 1093, '下单率': 0.32 },
-              { '日期': '1/2', '访问用户': 3530, '下单用户': 3230, '下单率': 0.26 },
-              { '日期': '1/3', '访问用户': 2923, '下单用户': 2623, '下单率': 0.76 },
-              { '日期': '1/4', '访问用户': 1723, '下单用户': 1423, '下单率': 0.49 },
-              { '日期': '1/5', '访问用户': 3792, '下单用户': 3492, '下单率': 0.323 },
-              { '日期': '1/6', '访问用户': 4593, '下单用户': 4293, '下单率': 0.78 },
-              { '日期': '1/7', '访问用户': 3530, '下单用户': 3230, '下单率': 0.26 },
-              { '日期': '1/8', '访问用户': 2923, '下单用户': 2623, '下单率': 0.76 },
-              { '日期': '1/9', '访问用户': 1723, '下单用户': 1423, '下单率': 0.49 },
-              { '日期': '1/10', '访问用户': 3792, '下单用户': 3492, '下单率': 0.323 },
-         
-              { '日期': '1/26', '访问用户': 4593, '下单用户': 4293, '下单率': 0.78 },
-              { '日期': '1/27', '访问用户': 3530, '下单用户': 3230, '下单率': 0.26 },
-              { '日期': '1/28', '访问用户': 2923, '下单用户': 2623, '下单率': 0.76 },
-              { '日期': '1/29', '访问用户': 1723, '下单用户': 1423, '下单率': 0.49 },
-            ]
-          }
-        },
-        {
-          chartSettings: {
-            axisSite: { right: ['下单率'] },
-            yAxisType: ['KMB', 'percent'],
-            yAxisName: ['数值', '比率']
-          },
-          chartData: {
-            columns: ['日期', '访问用户', '下单用户', '下单率'],
-            rows: [
-              { '日期': '1/1', '访问用户': 1393, '下单用户': 1093, '下单率': 0.32 },
-              { '日期': '1/2', '访问用户': 3530, '下单用户': 3230, '下单率': 0.26 },
-              { '日期': '1/3', '访问用户': 2923, '下单用户': 2623, '下单率': 0.76 },
-       
-              { '日期': '1/18', '访问用户': 2923, '下单用户': 2623, '下单率': 0.76 },
-              { '日期': '1/19', '访问用户': 1723, '下单用户': 1423, '下单率': 0.49 },
-              { '日期': '1/21', '访问用户': 1393, '下单用户': 1093, '下单率': 0.32 },
-              { '日期': '1/22', '访问用户': 3530, '下单用户': 3230, '下单率': 0.26 },
-              { '日期': '1/23', '访问用户': 2923, '下单用户': 2623, '下单率': 0.76 },
-              { '日期': '1/24', '访问用户': 1723, '下单用户': 1423, '下单率': 0.49 },
-              { '日期': '1/25', '访问用户': 3792, '下单用户': 3492, '下单率': 0.323 },
-              { '日期': '1/26', '访问用户': 4593, '下单用户': 4293, '下单率': 0.78 },
-              { '日期': '1/27', '访问用户': 3530, '下单用户': 3230, '下单率': 0.26 },
-              { '日期': '1/28', '访问用户': 2923, '下单用户': 2623, '下单率': 0.76 },
-              { '日期': '1/29', '访问用户': 1723, '下单用户': 1423, '下单率': 0.49 },
-            ]
-          }
-        },
-    
-      ],
+    this.extend = {
+      'xAxis.0.axisLabel.rotate': 45,
+
     }
+    return {
+      loading: false,
+      chartSettings: {
+        showDataZoom: true,
+       
+        labelMap: {
+          "name": "工号",
+          "sum": "积分",
+        },
+      },
+
+      chartData: {
+        columns: [],
+        rows: []
+      }
+    }
+  },
+  mounted () {
+    this.initpoin();
+  },
+  methods: {
+    initpoin () {
+      this.loading = true;
+      this.$notify.success({
+        title: '系统讯息',
+        message: '积 分 统 计 数 据 加 载 中...',
+        showClose: false,
+        offset: 100,
+        duration: 5000,
+        customClass: 'fontclass'
+      });
+      this.getRequest("/statistics/score/").then(resp => {
+        if (resp) {
+          this.chartData.columns = ["name", "sum"];
+          this.chartData.rows = resp;
+          this.loading = false;
+
+        }
+      });
+    },
   }
 }
 </script>
 
-<style scoped>
+<style >
+.fontclass {
+  font-size: 35px;
+  font-family: 站酷庆科黄油体;
+}
 </style>

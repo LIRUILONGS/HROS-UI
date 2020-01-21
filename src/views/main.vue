@@ -1,96 +1,67 @@
 <template>
   <div style="display: flex;justify-content: space-between; ">
     <div style="width: 300px">
-      <el-timeline>
         <!--icon="fa fa-circle-o-notch fa-spin fa-3x fa-fw"-->
-        <el-timeline-item placement="top"
-                          :type="activity.type"
-                          :color="activity.color"
-                          :size="activity.size"
-                          :timestamp="activity.timestamp">
-          <el-card>
+         <el-timeline>
+    <el-timeline-item style="width:130px"
+      v-for="(activity, index) in logs"
+      :key="index"
+      icon="fa fa-cog fa-spin fa-5x fa-fw"
+      type="primary"
+      color="409eff"
+      size="large"
+      :timestamp="activity.adddate" >
 
-            <h4>王小虎 提交于 2018/4/12 20:46</h4>
-          </el-card>
-        </el-timeline-item>
-        <el-timeline-item placement="top"
-                          :icon="activity.icon"
-                          :type="activity.type"
-                          :color="activity.color"
-                          :size="activity.size"
-                          :timestamp="activity.timestamp">
-          <el-card>
-            <h4>王小虎 调动 2018/4/12 20:46</h4>
-          </el-card>
-        </el-timeline-item>
-        <el-timeline-item placement="top"
-                          :icon="activity.icon"
-                          :type="activity.type"
-                          :color="activity.color"
-                          :size="activity.size"
-                          :timestamp="activity.timestamp">
-          <el-card>
-            <h4>王小虎 离职 2018/4/12 20:46</h4>
-          </el-card>
-        </el-timeline-item>
-        <el-timeline-item placement="top"
-                          :icon="activity.icon"
-                          :type="activity.type"
-                          :color="activity.color"
-                          :size="activity.size"
-                          :timestamp="activity.timestamp">
-          <el-card>
-            <h4>王小虎 入职</h4>
-          </el-card>
-        </el-timeline-item>
+            <h4>{{activity.logTypss.logtypemsg}}</h4>
+            <h4>  {{activity.operate}}</h4>
+            <h4>{{activity.hrname}} </h4>
 
-      </el-timeline>
+    </el-timeline-item>
+  </el-timeline>
+     
     </div>
     <div style="display: flex;margin-right: 10px;flex-wrap: wrap">
-   
-     <div style="font-size: 30px;display:flex;justify-content: center;font-family:站酷庆科黄油体;width:100%">公 告</div> 
-
+      <div style="font-size: 30px;display:flex;justify-content: center;font-family:站酷庆科黄油体;width:100%">公 告</div>
       <div class="center-right-infinite-lists">
-          <el-scrollbar style="height:100%;">
-            <div class="infinite-list-wrapper"
-                 style="overflow:auto;display: flex; align-items: center">
+        <el-scrollbar style="height:100%;">
+          <div class="infinite-list-wrapper"
+               style="overflow:auto;display: flex; align-items: center">
 
-              <ul class="list"
-                  style="align-items: center"
-                  v-loading.fullscreen.lock="loading"
-                  element-loading-spinner="fa fa-spinner fa-pulse fa-3x fa-fw"
-                  v-infinite-scroll="load"
-                  infinite-scroll-disabled="disabled">
+            <ul class="list"
+                style="align-items: center"
+                v-loading.fullscreen.lock="loading"
+                element-loading-spinner="fa fa-spinner fa-pulse fa-3x fa-fw"
+                v-infinite-scroll="load"
+                infinite-scroll-disabled="disabled">
 
-                <li v-for="(mainnotice,index ) in mainnotices"
-                    :key="index"
-                    class="list-item"
-                    :style="{width:rightclass}">
-                  <el-card class="box-cards">
-                    <div slot="header"
-                        
-                         style="height:1px;width:100%">
-                      <span style="font-family: 站酷庆科黄油体;font-size: 30px;margin-top: 10px; margin-bottom:10px;">TITLE:{{mainnotice.title}}</span>
-                      <el-button style="float: right; padding: 3px 0;font-size: 15px;font-family: 站酷庆科黄油体"
-                                 type="text">
-                        RELEASETIME:{{mainnotice.createTime}}
-                      </el-button>
-                      <el-button style="float: right;margin-right:15px; padding: 3px 0;font-size: 15px;font-family: 站酷庆科黄油体"
-                                 type="text">
-                        ISSUER:{{mainnotice.authon}}
-                      </el-button>
+              <li v-for="(mainnotice,index ) in mainnotices"
+                  :key="index"
+                  class="list-item"
+                  :style="{width:rightclass}">
+                <el-card class="box-cards">
+                  <div slot="header"
+                       style="height:1px;width:100%">
+                    <span style="font-family: 站酷庆科黄油体;font-size: 30px;margin-top: 10px; margin-bottom:10px;">TITLE:{{mainnotice.title}}</span>
+                    <el-button style="float: right; padding: 3px 0;font-size: 15px;font-family: 站酷庆科黄油体"
+                               type="text">
+                      RELEASETIME:{{mainnotice.createTime}}
+                    </el-button>
+                    <el-button style="float: right;margin-right:15px; padding: 3px 0;font-size: 15px;font-family: 站酷庆科黄油体"
+                               type="text">
+                      ISSUER:{{mainnotice.authon}}
+                    </el-button>
+                  </div>
+                  <div class="ql-container ql-snow">
+                    <div class="ql-editor">
+                      <Xqs class="details_box"
+                           v-html="mainnotice.mainbody"></Xqs>
                     </div>
-                    <div class="ql-container ql-snow">
-                      <div class="ql-editor">
-                        <Xqs class="details_box"
-                             v-html="mainnotice.mainbody"></Xqs>
-                      </div>
-                    </div>
-                  </el-card>
-                </li>
-              </ul>
-            </div>
-          </el-scrollbar>
+                  </div>
+                </el-card>
+              </li>
+            </ul>
+          </div>
+        </el-scrollbar>
       </div>
     </div>
   </div>
@@ -109,7 +80,9 @@ export default {
         authon: '',
         createtime: '',
         updatetime: '',
+        logs: {
 
+        }
       },
       loading: false,
       count: 2,
@@ -135,6 +108,11 @@ export default {
   },
   mounted () {
     this.initAmg();
+    this.initlog();
+     this.$nextTick(() => {
+                    setInterval(this.initlog, 50000);
+                })
+    
   },
   methods: {
 
@@ -142,33 +120,38 @@ export default {
       this.loading = true;
       this.getRequest("/body/").then(resp => {
         if (resp) {
-          this.loading = false;
+
           this.mainnotices = resp;
         }
       })
     },
+    initlog () {
+      this.getRequest("/log/").then(resp => {
+        if (resp) {
+          this.loading = false;
+          this.logs = resp;
+        }
+      })
+    },
     load () {
-
+    },
+    computed: {
+      routes () {
+        return this.$store.state.routes
+      },
+      noMore () {
+        return this.count >= 25
+      },
+      disabled () {
+        return this.loading || this.noMore
+      }
 
     },
-  },
-  computed: {
-    routes () {
-      return this.$store.state.routes
-    },
-    noMore () {
-      return this.count >= 25
-    },
-    disabled () {
-      return this.loading || this.noMore
-    }
-
-  },
+  }
 }
 </script>
 
 <style >
-
 .box-cards {
   overflow-x: hidden;
 }
@@ -212,5 +195,4 @@ export default {
   /*display: flex;
         align-items: center;*/
 }
-
 </style>

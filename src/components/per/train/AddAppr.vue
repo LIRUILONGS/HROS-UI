@@ -102,7 +102,7 @@
               </template>
             </el-table-column>
             <el-table-column align="center">
-              <template slot="header"
+              <template slot="header" slot-scope="scope"
                        >
                 <el-input placeholder="请输入员工名进行搜索"
                           prefix-icon="el-icon-search"
@@ -387,6 +387,14 @@ export default {
         url += "&name=" + this.keyword;
       }
       /*数据 返回*/
+       this.$notify.success({
+          title: '系统讯息',
+          message: ' 员 工 信 息 加 载 中...',
+          showClose: false,
+          offset: 50,
+          duration: 4000,
+          customClass: 'fontclass'
+        });
       this.getRequest(url).then(resp => {
         this.loading = false;
         if (resp) {

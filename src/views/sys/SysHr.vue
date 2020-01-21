@@ -50,34 +50,34 @@
                              @change="updatenable(hr)"></el-switch>
                 </div>
                 <div>用户角色：
-                  <el-tag v-for="role in hr.roles"
+                  <el-tag v-for="(role,indexj) in hr.roles"
                           size="mini"
-                          :key="role.id"
+                          :key="indexj"
                           type="success"
                           effect="dark"
                           style="margin-right: 5px">
                     {{ role.namezh}}
                   </el-tag>
                   <el-popover @show="showrol(hr)"
-                              @hide="hiderol(hr)"
-                              placement="right"
+                              @after-leave="hiderol(hr)"
                               title="角色列表"
                               width="200"
                               trigger="click">
+                              <template>
                     <el-select v-model="selectroles"
                                multiple
-                               placeholder="角色选择">
-                      <el-option type="success"
-                                 v-for="(item, index) in roles"
+                               :popper-append-to-body="false"
+                               placeholder="请选择">
+                      <el-option v-for="(item, index) in roles"
                                  :key="index"
                                  :label="item.namezh"
+                                
                                  :value="item.id">
                       </el-option>
                     </el-select>
+                    </template>
                     <el-button icon="el-icon-edit"
                                type="text"
-                               size="mini"
-                               circle
                                slot="reference"></el-button>
                   </el-popover>
                 </div>
@@ -106,7 +106,7 @@ export default {
   },
   mounted () {
     this.inithrs();
-    this.initroles () 
+    this.initroles()
   },
   methods: {
     deletehr (hr) {
@@ -152,16 +152,16 @@ export default {
           type: 'warning'
         });
       }
-    //   setTimeout(() => {
-    //     this.$notify.success({
-    //       title: '搜索讯息',
-    //       message: '搜 索 职 位 中...',
-    //       showClose: false,
-    //       offset: 100,
-    //       duration: 2000,
-    //       customClass: 'fontclasssys'
-    //     });
-    //   }, 1000);
+      //   setTimeout(() => {
+      //     this.$notify.success({
+      //       title: '搜索讯息',
+      //       message: '搜 索 职 位 中...',
+      //       showClose: false,
+      //       offset: 100,
+      //       duration: 2000,
+      //       customClass: 'fontclasssys'
+      //     });
+      //   }, 1000);
       this.getRequest("/system/hr/?name=" + this.name).then(resp => {
         if (resp) {
           /*更新数据+清空列表*/
@@ -189,50 +189,27 @@ export default {
       });
     },
     hiderol (hr) {
-      /*let roles =[];
-      Object.assign(hr.roles, roles);
-      let flag = false;
-      /!*判断数组是否改变*!/
-      if (roles.length != this.selectroles.length){
-          flag = true;
-      }else {
-          for (let i = 0; i < roles.length; i++){
-              let role = roles[i];
-              for (let j = 0; j < this.selectroles.length; j++){
-                  let sr = this.selectroles[j];
-                  if (role.id == sr){
-                      roles.splice(i, 1);
-                      i--;
-                      break;
-                  }
-              }
-          }
-          if (roles.length != 0){
-              flag = true;
-          }
-      }
-      if (flag) {*/
       let url = "/system/hr/role?" + "hrid=" + hr.id;
       this.selectroles.forEach(id => {
-        url += "&rids=" + id
+        url += "&rids=" + id;
       })
+      this.selectroles = null;
       this.$notify.success({
         title: '修改讯息',
         message: '用 户 信 息 修 改 中...',
         showClose: false,
         offset: 200,
         duration: 2000,
-        customClass: 'fontclasssys'
+        customClass: 'fontclasssysuser'
       });
       this.putRequest(url).then(resp => {
         if (resp) {
           this.inithrs();
         }
       });
-
     },
     showrol (hr) {
-      this.initroles();
+      //  this.initroles();
       let roles = hr.roles;
       this.selectroles = [];
       roles.forEach(r => {
@@ -280,21 +257,20 @@ export default {
             duration: 2000,
             customClass: 'fontclasssysuser'
           });
-        },1000);
+        }, 1000);
       }
     }
   }}
 </script>
 
-<style >
-
+<style  >
 .fontclasssysuser {
   font-family: 站酷庆科黄油体;
 }
 
 .center-right-infinite-lists {
   height: 750px;
-    width: 100%;
+  width: 100%;
 }
 
 .el-scrollbar__wrap {
