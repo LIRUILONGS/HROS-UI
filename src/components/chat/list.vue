@@ -1,18 +1,22 @@
 <template>
   <div id="list">
-    <ul style="padding-left: 0px">
-      <li v-for="item in hrs"
-          :class="{ active: currentSession?item.username === currentSession.username:false}"
-          v-on:click="changeCurrentSession(item)">
-        <!--   :class="[item.id === currentSession ? 'active':'']" -->
-        <img class="avatar"
-             :src="item.userface"
-             :alt="item.name">
-        <el-badge :is-dot="isDot[user.username+'#'+item.username]">
-          <p class="name">{{item.name}}</p>
-        </el-badge>
-      </li>
-    </ul>
+    <el-scrollbar style="height: 100%;">
+      <div style="height:460px;">
+        <ul style="padding-left: 0px;">
+          <li v-for="(item,index) in hrs"
+              :key="index"
+              :class="{ active: currentSession?item.username === currentSession.username:false}"
+              v-on:click="changeCurrentSession(item)">
+            <!--   :class="[item.id === currentSession ? 'active':'']" -->
+            <img class="avatar"
+                 :src="item.userface">
+            <el-badge :is-dot="isDot[user.username+'#'+item.username]">
+              <p class="name">{{item.name}}</p>
+            </el-badge>
+          </li>
+        </ul>
+      </div>
+    </el-scrollbar>
   </div>
 </template>
 
@@ -26,11 +30,11 @@ export default {
       user: JSON.parse(window.sessionStorage.getItem("user"))
     }
   },
-  computed: mapState([
-    'hrs',
-    'isDot',
-    'currentSession'
-  ]),
+  computed: {    ...mapState([
+      'hrs',
+      'isDot',
+      'currentSession'
+    ])  },
   methods: {
     changeCurrentSession (currentSession) {
       this.$store.commit('changeCurrentSession', currentSession)
@@ -39,10 +43,15 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" scoped >
+.el-scrollbar__wrap {
+  width: 190px;
+
+  overflow-x: hidden;
+}
 #list {
   li {
-    padding: 16px 15px;
+    padding: 7px 15px;
     border-bottom: 1px solid #292c33;
     cursor: pointer;
     list-style: none;

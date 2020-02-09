@@ -18,6 +18,7 @@
         </el-button>
       </div>
     </div>
+ 
     <div class="content-style">
       <el-table :data="emps"
                 stripe
@@ -125,6 +126,7 @@
             </el-tooltip>
             <el-tag v-else>暂未设置</el-tag>
           </template>
+        
         </el-table-column>
         <el-table-column label="操作"
                          align="center">

@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <div class="top-style">
+    <div class="top-style" >
       <div style="display: flex;justify-content: flex-start;">
         <el-input placeholder="请输入员工名进行搜索..."
                   prefix-icon="el-icon-search"
@@ -325,15 +325,8 @@ export default {
     initEmps () {
       this.loading = true;
       let url = '/employee/advanced/?page=' + this.page + '&size=' + this.size;
-  if (this.searchValue) {
-      this.$notify.success({
-        title: '搜索讯息',
-        message: '搜 索 员 工 中...',
-        showClose: false,
-        offset: 100,
-        duration: 2000,
-        customClass: 'fontclass'
-      });
+  if (this.searchValue != null) {
+     
       }
       if (this.searchValue.politicid) {
         url += '&politicid=' + this.searchValue.politicid;
@@ -358,13 +351,13 @@ export default {
       }
       if (this.keyword) {
         this.$notify.success({
-          title: '搜索讯息',
-          message: '搜 索 员 工 中...',
-          showClose: false,
-          offset: 100,
-          duration: 2000,
-          customClass: 'fontclass'
-        });
+        title: '搜索讯息',
+        message: '搜 索 员 工 中...',
+        showClose: false,
+        offset: 100,
+        duration: 2000,
+        customClass: 'fontclass'
+      });
         url += "&name=" + this.keyword;
       }
       /*数据 返回*/

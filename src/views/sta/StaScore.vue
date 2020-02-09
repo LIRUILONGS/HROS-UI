@@ -3,17 +3,21 @@
     <div style="margin-top:30px;display:flex ;justify-content: center;"
          v-loading.fullscreen.lock="loading"
          element-loading-spinner="fa fa-spinner fa-pulse fa-3x fa-fw">
-      <div style="width:1500px">
+      <div style="width:1500px;height:840">
+            <div style="display:felx;;color:#000000;text-align: center;font-size:35px;font-family: 站酷庆科黄油体">  积 分 统 计</div>
 
        <ve-bar :data="chartData"
                  :settings="chartSettings" :extend="extend"
-                 height="700px"
+                 height="740px"
                  width="100%"
-                 :judge-width="true"></ve-bar>
+                 :judge-width="true">
+
+                 </ve-bar>
 
       </div>
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -22,7 +26,6 @@ export default {
   data () {
     this.extend = {
       'xAxis.0.axisLabel.rotate': 45,
-
     }
     return {
       loading: false,

@@ -26,7 +26,7 @@
                   
                     stripe
                     height="660"
-                    style="width:80%;height: 645px"
+                    style="width:100%;height: 645px"
                     @selection-change="handleSelectionChange">
             <el-table-column type="selection"
                              width="55">
@@ -37,7 +37,7 @@
             </el-table-column>
             <el-table-column prop="title"
                              label="公告标题"
-                             width="150">
+                             >
             </el-table-column>
             <el-table-column prop="authon"
                              label="发布人"
@@ -51,7 +51,7 @@
                              label="创建时间"
                              width="200">
             </el-table-column>
-            <el-table-column label="操作">
+            <el-table-column label="操作" width="250">
               <template slot-scope="scope">
                 <el-button size="mini"
                            type="success"

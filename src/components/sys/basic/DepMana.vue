@@ -24,8 +24,8 @@
     </div>
     <div class="center-right-infinite-list">
       <el-scrollbar style="height:100%">
-        <div style="width: 900px;overflow:auto">
-          <el-tree style="width: 900px"
+        <div style="width: 800px;overflow:auto">
+          <el-tree style="width: 606px"
                    @node-click="handleNodeClick"
                    :data="deps"
                    :props="defaultProps"
@@ -83,6 +83,7 @@
     <el-drawer size="60%"
                direction="btt"
                custom-class="drawer"
+              
                :visible.sync="table">
       <ve-tree :data="chartData"
                :settings="chartSettings"></ve-tree>
@@ -316,13 +317,14 @@ export default {
 </script>
 
 <style>
- .fontclass {
-        font-size: 35px;
-        font-family: 站酷庆科黄油体;
-    }
+.fontclass {
+  font-size: 35px;
+  font-family: 站酷庆科黄油体;
+}
 .el-drawer.drawer {
-  border-radius: 15px 15px 0px 0px;
+  border-radius: 15px 0px 0px 15px;
   box-shadow: dodgerblue;
+  
 }
 
 .el-scrollbar__wrap {
@@ -332,7 +334,7 @@ export default {
 }
 
 .center-right-infinite-list {
-  width: 1500px;
+  width: 800px;
   height: 690px;
 }
 

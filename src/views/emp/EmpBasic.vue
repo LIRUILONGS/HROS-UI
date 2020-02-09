@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="top-style">
+    <div class="top-style" >
       <div style="display: flex;justify-content: flex-start;">
         <el-input placeholder="请输入员工名进行搜索，可以直接回车搜索..."
                   prefix-icon="el-icon-search"
@@ -1067,6 +1067,14 @@ export default {
         url += "&name=" + this.keyword;
       }
       /*数据 返回*/
+      this.$notify.success({
+          title: '系统讯息',
+          message: '基 本 信 息 加 载 中...',
+          showClose: false,
+          offset: 100,
+          duration: 4000,
+          customClass: 'fontclass'
+        });
       this.getRequest(url).then(resp => {
         this.loading = false;
         if (resp) {
@@ -1083,6 +1091,7 @@ export default {
 </script>
 
 <style>
+
 .top-style {
   /*定义弹性布局*/
   display: flex;

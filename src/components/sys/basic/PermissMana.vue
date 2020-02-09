@@ -45,14 +45,10 @@
                 </el-collapse-item>
             </el-collapse>
         </div>
-        <el-drawer size="40%" direction="rtl" custom-class="drawerstyle"
+        <el-drawer size="50%" direction="btt" custom-class="drawerstyle" :modal="false"
                    :visible.sync="table">
             <ve-tree :data="chartData" :settings="chartSettings"></ve-tree>
-            <el-table :data="roles">
-                <el-table-column property="id" label="编号" width="100"></el-table-column>
-                <el-table-column property="name" label="角色英文名" width="300"></el-table-column>
-                <el-table-column property="namezh" label="角色中文名"></el-table-column>
-            </el-table>
+           
         </el-drawer>
     </div>
 </template>
@@ -263,6 +259,7 @@
     .el-drawer.drawerstyle {
         border-radius: 15px 0px 0px 15px;
         box-shadow: dodgerblue;
+        background: Transparent
 
     }
 

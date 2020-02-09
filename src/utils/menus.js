@@ -1,30 +1,30 @@
-import {getRequest} from "./api";
+import { getRequest } from "./api";
 /*
-* 对菜单路由进行处理
-* */
+ * 对菜单路由进行处理
+ * */
 
 
-export const initMenu=(router, store)=>{
-    if (store.state.routes.length > 0){
+export const initMenu = (router, store) => {
+    if (store.state.routes.length > 0) {
         return;
     }
-    getRequest("/system/config/menu").then(data=>{
-        if (data ){
+    getRequest("/system/config/menu").then(data => {
+        if (data) {
             let fmtRoutes = formatRoutes(data);
             //添加路由
             router.addRoutes(fmtRoutes);
             //初始化数据
-            store.commit('initRoutes',fmtRoutes);
-
+            store.commit('initRoutes', fmtRoutes);
+            store.dispatch('connect');
         }
     })
 }
-/*
-* 菜单数据的格式话
-* */
+// *
+// 菜单数据的格式话 *
 export const formatRoutes = (routes) => {
     let fmRoutes = [];
     routes.forEach(router => {
+        // 数组的解构赋值
         let {
             path,
             component,
@@ -36,14 +36,15 @@ export const formatRoutes = (routes) => {
         if (children && children instanceof Array) {
             children = formatRoutes(children);
         }
+        //对象的解构赋值
         let fmRouter = {
             path: path,
             name: name,
             iconcls: iconcls,
             meta: meta,
-            hidden:false,
+            hidden: false,
             children: children,
-            component(resolve) {
+            component (resolve) {
                 if (component.startsWith("Home")) {
                     require(['../views/' + component + '.vue'], resolve);
                 } else if (component.startsWith("Emp")) {
@@ -63,48 +64,3 @@ export const formatRoutes = (routes) => {
     })
     return fmRoutes;
 }
-/*export const formatRoutes = (routes) => {
-    let fmRoutes = [];
-    routes.forEach(router => {
-        let {
-            path,
-            component,
-            name,
-            meta,
-            iconcls,
-            children
-        } = router;
-        window.console.log(JSON.stringify(component));
-        if (children && children instanceof Array) {
-            children = formatRoutes(children);
-        }
-
-       /!* /!*组件赋值*!/!*!/
-        let fmRouter = {
-            path: path,
-            name: name,
-            iconcls: iconcls,
-            meta: meta,
-            children: children,
-            component() {
-               alert(JSON.stringify(component));
-                if (component.startsWith("Home")) {
-                    () => import('../views/' + component + '.vue');
-                } else if (component.startsWith("Emp")) {
-                    () =>  import('../views/emp/' + component + '.vue');
-                } else if (component.startsWith("Per")) {
-                    () => import('../views/per/' + component + '.vue');
-                } else if (component.startsWith("Sal")) {
-                    () => import('../views/sal/' + component + '.vue');
-                } else if (component.startsWith("Sta")) {
-                    () =>  import('../views/sta/' + component + '.vue');
-                } else if (component.startsWith("Sys")) {
-                    () => import('../views/sys/' + component + '.vue');
-                }
-            }
-        };
-        window.console.log(JSON.stringify(fmRouter));
-        fmRoutes.push(fmRouter);
-    })
-    return fmRoutes;
-}*/

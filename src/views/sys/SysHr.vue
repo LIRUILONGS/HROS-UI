@@ -12,6 +12,7 @@
                  type="primary"
                  @click="searchname">搜索</el-button>
     </div>
+    
     <div class="center-right-infinite-lists"
          v-loading.fullscreen.lock="loading"
          element-loading-spinner="fa fa-spinner fa-pulse fa-3x fa-fw"
@@ -86,8 +87,9 @@
             </div>
           </el-card>
         </div>
-      </el-scrollbar>
+         <el-backtop target=".center-right-infinite-lists .el-scrollbar__wrap  "></el-backtop>
 
+      </el-scrollbar>
     </div>
   </div>
 </template>
@@ -193,6 +195,7 @@ export default {
       this.selectroles.forEach(id => {
         url += "&rids=" + id;
       })
+      url+="&rids";
       this.selectroles = null;
       this.$notify.success({
         title: '修改讯息',

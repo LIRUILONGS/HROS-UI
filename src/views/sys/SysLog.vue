@@ -30,6 +30,7 @@
       </el-button>
 
     </div>
+
     <div class="centon-log-style">
       <el-scrollbar style="height: 100%;">
         <div>
@@ -39,7 +40,7 @@
                     element-loading-spinner="fa fa-spinner fa-pulse fa-3x fa-fw"
                     stripe
                     height="690"
-                    style="width:80%;height: 645px"
+                    style="width:100%;height: 645px"
                     @selection-change="handleSelectionChange">
 
             <el-table-column prop="id"
@@ -51,6 +52,7 @@
                              width="200">
             </el-table-column>
             <el-table-column prop="operate"
+                            
                              label="日志描述">
             </el-table-column>
             <el-table-column prop="hrname"
@@ -58,6 +60,7 @@
                              width="200">
             </el-table-column>
             <el-table-column prop="adddate"
+                             width="200"
                              label="日志时间">
             </el-table-column>
           </el-table>
@@ -138,7 +141,7 @@ export default {
       this.initlog();
     },
     initlog () {
-        this.loading = true;
+      this.loading = true;
       if (this.logtype) {
         this.$notify.success({
           title: '搜索讯息',
@@ -178,7 +181,6 @@ export default {
 </script>
 
 <style >
-
 .fontclasssyslog {
   font-family: 站酷庆科黄油体;
 }

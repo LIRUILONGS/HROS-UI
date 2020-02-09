@@ -107,6 +107,7 @@
                 <el-input placeholder="请输入员工名进行搜索"
                           prefix-icon="el-icon-search"
                           clearable
+                          :value="scope"
                           @clear="initEmps"
                           style="width: 200px;"
                           v-model="keyword"

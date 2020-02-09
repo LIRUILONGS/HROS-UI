@@ -54,7 +54,25 @@ Notification 通知查询功能:加一个同名添加的查询功能:
      overflow-x: hidden;
      }
   ps: 同时显示横向和竖向滚动条，不能设置overflow:hidden,而是要针对overflow-x: hidden(让浏览器原始滚动条隐藏);设置，否则竖向的滚动条会不随滚轮滚动。
-  
+   <el-scrollbar style="height: 100%;">
+      <div style="height:500px;">
+
+      .el-scrollbar__wrap {
+  width: 185px;
+  overflow-x: hidden;
+
+  /*背景裁剪在背景边框内部*/
+  background-clip: padding-box;
+  /*// 边框样式*/
+  border: 1px solid #eaeaea;
+  /*// 边框阴影*/
+  box-shadow: 0 0 25px #cac6c6;
+  margin: 20px auto;
+  width: 1200px;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 10px;
+}
  ## Vue ElementUI 如何修改消息提示框样式
     setTimeout(() => {
                         this.$notify.success({

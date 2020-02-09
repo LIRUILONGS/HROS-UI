@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './views/Login'
 import Home from './views/Home'
-
+import pageChat from './views/chat/pageChat.vue'
 
 
 
@@ -20,6 +20,14 @@ export default new Router({
           name:'首页',
           component: Home,
           hidden:true,
-        }
+          children:[
+            {
+              path:'/chat',
+              name:'聊天页',
+              component:pageChat,
+              hidden:true
+            },
+          ]
+        },
     ]
 })

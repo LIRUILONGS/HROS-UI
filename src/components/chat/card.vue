@@ -33,6 +33,7 @@ export default {
     width: 40px;
     height: 40px;
     vertical-align: middle; /*这个是图片和文字居中对齐*/
+		border-radius: 5px;
   }
   .name {
     display: inline-block;

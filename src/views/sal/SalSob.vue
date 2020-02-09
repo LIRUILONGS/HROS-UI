@@ -8,6 +8,7 @@
                  type="success"
                  @click="initSalaries">刷新</el-button>
     </div>
+   
     <div style="margin-top: 10px">
       <el-table :data="salaries"
                 border

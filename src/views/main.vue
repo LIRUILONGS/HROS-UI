@@ -21,7 +21,7 @@
      
     </div>
     <div style="display: flex;margin-right: 10px;flex-wrap: wrap">
-      <div style="font-size: 30px;display:flex;justify-content: center;font-family:站酷庆科黄油体;width:100%">公 告</div>
+      <!-- <div style="font-size: 30px;display:flex;justify-content: center;font-family:站酷庆科黄油体;width:100%">公 告</div> -->
       <div class="center-right-infinite-lists">
         <el-scrollbar style="height:100%;">
           <div class="infinite-list-wrapper"
@@ -61,9 +61,12 @@
               </li>
             </ul>
           </div>
+          <el-backtop target=".center-right-infinite-lists .el-scrollbar__wrap "></el-backtop>
         </el-scrollbar>
       </div>
     </div>
+  
+  
   </div>
 </template>
 
@@ -178,6 +181,7 @@ export default {
   margin-top: 5px;
   margin-bottom: 50px;
   margin-right: 20px;
+   list-style: none;
   /*// 边框阴影*/
   /* box-shadow: 0 0 30px #cac6c6;*/
   /*背景裁剪在背景边框内部*/

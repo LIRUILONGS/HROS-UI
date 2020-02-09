@@ -13,6 +13,7 @@
     "echarts": "^4.5.0",
     "element-ui": "^2.13.0",
     "font-awesome": "^4.7.0",
+    "screenfull": "^5.0.1",
     "v-charts": "^1.19.0",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.5",
@@ -36,8 +37,7 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
+      "plugin:vue/essential"
     ],
     "rules": {},
     "parserOptions": {

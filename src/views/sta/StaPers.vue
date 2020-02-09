@@ -17,7 +17,7 @@
                     :tooltip-visible="false"
                     :judge-width="true"
                     :settings="item.chartSettings"></ve-pie>
-            <div style="display:felx;text-align: center;font-size:35px;font-family: 站酷庆科黄油体"> {{item.title}}</div>
+            <div style="display:felx;;color:#000000;text-align: center;font-size:35px;font-family: 站酷庆科黄油体"> {{item.title}}</div>
           </div>
 
         </el-carousel-item>

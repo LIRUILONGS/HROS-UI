@@ -77,7 +77,7 @@
         </el-dialog>
       </div>
     </div>
-
+<el-divider></el-divider>
     <div class="content-style">
       <el-scrollbar style="height: 100%">
         <div>

@@ -20,8 +20,8 @@
                 <el-form label-position="left"
                          inline
                          class="demo-table-expand">
-                  <el-form-item label="账套名称:"> <span>{{props.row.salary.name}}</span></el-form-item>
-                  <el-form-item label="基本工资:"> <span>{{props.row.salary.basicsalary}}</span></el-form-item>
+                  <el-form-item class="tag-group" label="账套名称:"> <span>{{props.row.salary.name}}</span></el-form-item>
+                  <el-form-item  class="tag-group" label="基本工资:"> <span>{{props.row.salary.basicsalary}}</span></el-form-item>
                   <el-form-item label="交通补助:"> <span>{{props.row.salary.trafficsalary}}</span></el-form-item>
                   <el-form-item label="午餐补助:"> <span>{{props.row.salary.lunchsalary}}</span></el-form-item>
                   <el-form-item label="奖金:"> <span>{{props.row.salary.bonus}}</span></el-form-item>
@@ -102,6 +102,7 @@
                 <el-input placeholder="请输入员工名进行搜索"
                           prefix-icon="el-icon-search"
                           clearable
+                          :value="scope"
                           @clear="initEmps"
                           style="width: 200px;"
                           v-model="keyword"
@@ -273,6 +274,14 @@ export default {
         url += "&name=" + this.keyword;
       }
       /*数据 返回*/
+       this.$notify.success({
+          title: '系统讯息',
+          message: ' 员 工 账 套 工 资 加 载 中...',
+          showClose: false,
+          offset: 100,
+          duration: 2000,
+          customClass: 'fontclass'
+        });
       this.getRequest(url).then(resp => {
         this.loading = false;
         if (resp) {

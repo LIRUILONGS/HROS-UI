@@ -12,13 +12,17 @@
           <el-carousel-item v-for="(item,index) in datas"
                             :key="index"
                             style="border-radius: 15px;border: 1px solid #eaeaea; box-shadow: 0 0 25px #EBEEF5;">
+<div style="display:felx;text-align: center;font-size:35px;font-size:35px;font-family: 站酷庆科黄油体;margin: 0px;padding:0px;height:30px"> {{item.title}}</div>            
+
             <ve-histogram :data="item.chartData"
                           :settings="item.chartSettings"
                           height="700px"
                           width="100%"
-                          :judge-width="true"></ve-histogram>
-            <div style="display:felx;text-align: center;font-size:35px;font-family: 站酷庆科黄油体"> {{item.title}}</div>
+                          :judge-width="true">
+                          </ve-histogram>
+
           </el-carousel-item>
+
         </el-carousel>
       </div>
     </div>
@@ -83,7 +87,7 @@ export default {
           }
         },
         {
-          title: "职位人事分析",
+          title: "职称人事分析",
           chartSettings: {
             showLine: ['entrant', 'aDouble'],
             yAxisName: ['人数', '比率'],
