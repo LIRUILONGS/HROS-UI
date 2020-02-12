@@ -1,4 +1,5 @@
 # vuehr
+<<<<<<< HEAD
 
 ## Project setup
 
@@ -192,3 +193,6 @@ export default {
         Date endContract = employee.getEndcontract();
         double month = (Double.parseDouble(yearFormat.format(endContract)) - Double.parseDouble(yearFormat.format(beginContract))) * 12 + (Double.parseDouble(monthFormat.format(endContract)) - Double.parseDouble(monthFormat.format(beginContract)));
         employee.setContractterm(Double.parseDouble(decimalFormat.format(month / 12)));
+=======
+#基于微人事项目开发的毕业设计
+>>>>>>> 8a39f72427f3542f55d8a8655ba118a3203771ba
