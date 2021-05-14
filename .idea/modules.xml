@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/vuehr.iml" filepath="$PROJECT_DIR$/.idea/vuehr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/HROS-UI.iml" filepath="$PROJECT_DIR$/.idea/HROS-UI.iml" />
     </modules>
   </component>
 </project>

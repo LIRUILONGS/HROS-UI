@@ -1,4 +1,4 @@
-<template  >
+<template style="width: 100%;height: 100%;" >
   <div v-loading.fullscreen.lock="loading"
        class="login"
        element-loading-spinner="fa fa-spinner fa-pulse fa-3x fa-fw">
@@ -149,10 +149,10 @@ export default {
 }
 
 .login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 937px; 
+  background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    position: fixed;
    background-image: url(../assets/images/timg.jpg); 
 }
 .logContainer {
