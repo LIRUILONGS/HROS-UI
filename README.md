@@ -2,7 +2,7 @@
 
 ## 开发环境
 ```bash
- PS D:\node\code\HROS-UI> node -v
+PS D:\node\code\HROS-UI> node -v
 v12.13.1
 PS D:\node\code\HROS-UI> npm -v
 6.12.1
