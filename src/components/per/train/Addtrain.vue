@@ -42,7 +42,7 @@
             <el-table-column prop="workid"
                              label="工号"
                              align="left"
-                             width="85">
+                             width="100">
             </el-table-column>
             <el-table-column prop="email"
                              width="180"
@@ -311,7 +311,7 @@ export default {
           message: '添 加 培 训 中...',
           showClose: false,
           offset: 100,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass'
         });
 
@@ -350,7 +350,7 @@ export default {
           message: '添 加 字 段 为 空!...',
           showClose: false,
           offset: 100,
-          duration: 2000,
+          duration: 1500,
           customClass: 'fontclass',
           type: 'warning'
         });
@@ -382,7 +382,7 @@ export default {
           message: '搜 索 员 工 中...',
           showClose: false,
           offset: 100,
-          duration: 2000,
+          duration: 1500,
           customClass: 'fontclass'
         });
 
@@ -392,7 +392,7 @@ export default {
           message: '搜 索 员 工 中...',
           showClose: false,
           offset: 100,
-          duration: 2000,
+          duration: 1500,
           customClass: 'fontclass'
         });
         url += "&name=" + this.keyword;

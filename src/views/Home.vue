@@ -3,9 +3,9 @@
 
     <el-container>
       <el-header class="homeHeader">
-        <div><i class="fa fa-drupal fa-2x"
-             @click="isCollapse = isCollapse == false ? true : false"
-             style="color: #ffffff" />&nbsp; <font id="title">人事管理系统</font>
+        <div><i class="fa fa-magnet fa-2x"
+                @click="isCollapse = !isCollapse"
+                style="color: #d9c9c9"/>&nbsp; <font id="title">智慧人事管理系统</font>
         </div>
 
         <div style="display: flex; align-items: center; margin-right: 7px">
@@ -14,19 +14,20 @@
 
             <i class="fa fa-envelope fa-1x "
                style="cursor: pointer;margin-right:10px"
-               @click="pageChar" />
+               @click="pageChar"/>
 
           </span>
 
           <el-dropdown class="userInfo"
                        @command="commandHandler">
             <span class="el-dropdown-link">
-              {{user.name}}
+              {{ user.name }}
               <i> <img :src="user.userface"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item command="logout"
-                                divided>注销登录</el-dropdown-item>
+                                divided>注销登录
+              </el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </div>
@@ -47,14 +48,14 @@
                 <template slot="title">
                   <i style="color: #409eff; margin-right: 15px;"
                      :class="item.iconcls"></i>
-                  <span slot="title">{{ item.name}}</span>
+                  <span slot="title">{{ item.name }}</span>
                 </template>
                 <el-menu-item :index="child.path"
                               v-for="( child, indexj ) in item.children"
                               :key="indexj">
                   <i style="color: #409eff; margin:0 15px;"
                      :class="child.iconcls"></i>
-                  <span slot="title">{{ child.name}}</span>
+                  <span slot="title">{{ child.name }}</span>
                 </el-menu-item>
               </el-submenu>
             </el-menu>
@@ -67,21 +68,21 @@
               首页
             </el-breadcrumb-item>
             <!--获取当前路由对象的指定属性-->
-            <el-breadcrumb-item>{{ this.$router.currentRoute.name}}</el-breadcrumb-item>
+            <el-breadcrumb-item>{{ this.$router.currentRoute.name }}</el-breadcrumb-item>
           </el-breadcrumb>
           <div :class="{homeRouterViewA: isa, homeRouterViewB: isb}"
                v-if="this.$router.currentRoute.path=='/home'">
 
-            <Main />
+            <Main/>
           </div>
-          <router-view :class="{homeRouterViewA: isa, homeRouterViewB: isb}" />
+          <router-view :class="{homeRouterViewA: isa, homeRouterViewB: isb}"/>
         </el-main>
       </el-container>
     </el-container>
     <el-dialog :visible.sync="dialogTableVisible"
                width="0%"
                custom-class="pagechar">
-      <pageChar />
+      <pageChar/>
     </el-dialog>
   </div>
 </template>
@@ -89,10 +90,11 @@
 <script>
 import Main from "./main";
 import pageChar from "./chat/pageChat"
+
 export default {
 
   name: "Home",
-  data () {
+  data() {
     return {
       //获取用户信息，从sessionStorage中提取信息转换为
       user: JSON.parse(window.sessionStorage.getItem("user")),
@@ -107,14 +109,14 @@ export default {
       dialogTableVisible: false,
     }
   },
-  mounted () {
+  mounted() {
   },
   methods: {
-    pageChar () {
+    pageChar() {
       // this.$router.push("/chat");
       this.dialogTableVisible = true;
     },
-    load () {
+    load() {
       this.loading = true
       setTimeout(() => {
         this.count += 3
@@ -122,12 +124,12 @@ export default {
       }, 2000)
     },
     /*子菜单的单机触发事件*/
-    menusClick () {
-      this.isCollapse = true;
+    menusClick() {
+      this.isCollapse = false;
 
     },
     /*注销*/
-    commandHandler (cmd) {
+    commandHandler(cmd) {
       if (cmd == 'logout') {
         this.$confirm('此操作注销登录, 是否继续?', '提示', {
           confirmButtonText: '确定',
@@ -150,13 +152,13 @@ export default {
     },
   },
   computed: {
-    routes () {
+    routes() {
       return this.$store.state.routes
     },
-    noMore () {
+    noMore() {
       return this.count >= 25
     },
-    disabled () {
+    disabled() {
       return this.loading || this.noMore
     }
 
@@ -182,7 +184,7 @@ export default {
 }
 </script>
 
-<style >
+<style>
 .pagechar {
   display: flex;
   /* //居中对齐弹性盒的各项  元素：*/
@@ -214,6 +216,7 @@ export default {
   width: 1645px;
   height: 780px;
 }
+
 .homeRouterViewB {
   margin-top: 10px;
   width: 1800px;
@@ -221,7 +224,7 @@ export default {
 }
 
 .homeHeader {
-  background-color: #409eff;
+  background-color: #76d3e3;
   /*background-image: linear-gradient(#409EFF, #FFFFFF);*/
 
   /* //弹性布局,设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。*/
@@ -237,9 +240,10 @@ export default {
   /*box-shadow:0px 10px 10px -4px #409eff;*/
   font-family: 站酷庆科黄油体;
 }
+
 .el-menu-vertical-demo el-menu {
   border: #ffffff;
-  border-right:olid 0px #ffffff; 
+  border-right: olid 0px #ffffff;
 }
 
 #title {
@@ -275,6 +279,7 @@ export default {
   min-height: 100%;
   border: #ffffff;
 }
+
 el-menu {
   border-right: solid 0px #ffffff;
 }

@@ -135,7 +135,7 @@
                         message: '搜 索 职 位 中...',
                         showClose: false,
                         offset: 100,
-                        duration: 2000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
                     this.pos.name = this.pos.searchname;
@@ -153,7 +153,7 @@
                         message: '搜 索 字 段 不 可 以 为 空!...',
                         showClose: false,
                         offset: 100,
-                        duration: 2000,
+                        duration: 1500,
                         customClass: 'fontclass',
                         type: 'warning'
                     });
@@ -174,7 +174,7 @@
                         message: '删 除 职 位 中...',
                         showClose: false,
                         offset: 100,
-                        duration: 4000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
                     this.deleteRequest("/system/basic/pos/" + ids).then(resp => {
@@ -188,7 +188,7 @@
                         message: '取 消 删 除 中...',
                         showClose: false,
                         offset: 100,
-                        duration: 4000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
                 });
@@ -206,7 +206,7 @@
                         message: '添 加 职 位 中...',
                         showClose: false,
                         offset: 100,
-                        duration: 2000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
                     this.postRequest("/system/basic/pos/", this.pos).then(resp => {
@@ -222,7 +222,7 @@
                         message: '添 加 字 段 不 可 以 为 空!',
                         showClose: false,
                         offset: 100,
-                        duration: 2000,
+                        duration: 1500,
                         customClass: 'fontclass',
                         type: 'warning'
                     });
@@ -240,7 +240,7 @@
                     message: '已 取 消 修 改...',
                     showClose: false,
                     offset: 100,
-                    duration: 2000,
+                    duration: 1500,
                     customClass: 'fontclass'
                 });
                 this.dialogVisible = false;
@@ -251,7 +251,7 @@
                     message: '更 新 职 位 中...',
                     showClose: false,
                     offset: 100,
-                    duration: 2000,
+                    duration: 1500,
                     customClass: 'fontclass'
                 });
                 this.putRequest("/system/basic/pos/", this.updatePos).then(resp => {
@@ -273,7 +273,7 @@
                         message: '删 除 职 位 中...',
                         showClose: false,
                         offset: 100,
-                        duration: 4000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
                     this.deleteRequest("/system/basic/pos/" + data.id).then(resp => {
@@ -287,7 +287,7 @@
                         message: '以 取 消 删 除 ',
                         showClose: false,
                         offset: 100,
-                        duration: 2000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
                 });
@@ -300,12 +300,12 @@
                     message: '职 位 信 息 加 载 中...',
                     showClose: false,
                     offset: 100,
-                    duration: 4000,
+                    duration: 1500,
                     customClass: 'fontclass'
                 });
                 }, 900);
                 this.loading = true;
-                this.getRequest("/system/basic/pos/").then(resp => {
+                this.getRequest("/system/basic/pos/all/").then(resp => {
                     this.loading = false;
                     if (resp) {
                         this.positions = resp;

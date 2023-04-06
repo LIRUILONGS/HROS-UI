@@ -13,13 +13,13 @@
                    :value="item.id"></el-option>
       </el-select>
       <el-date-picker v-model="beginDateScope"
-                      type="monthrange"
-                      align="left"
+                      type="daterange"
+                      align="center"
                       unlink-panels
                       value-format="yyyy-MM-dd"
                       range-separator="至"
-                      start-placeholder="开始月份"
-                      end-placeholder="结束月份"
+                      start-placeholder="开始日期"
+                      end-placeholder="结束日期"
                       :picker-options="pickerOptions">
       </el-date-picker>
       <el-button icon="el-icon-search"
@@ -148,7 +148,7 @@ export default {
           message: '搜 索 日 志 中...',
           showClose: false,
           offset: 100,
-          duration: 2000,
+          duration: 1500,
           customClass: 'fontclasssyslog'
         });
       }

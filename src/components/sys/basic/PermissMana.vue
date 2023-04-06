@@ -117,7 +117,7 @@
                         message: '删 除 角 色 中...',
                         showClose: false,
                         offset: 100,
-                        duration: 4000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
                     this.deleteRequest("/system/basic/permiss/role/" + role.id).then(resp => {
@@ -132,7 +132,7 @@
                         message: '删 除 取 消',
                         showClose: false,
                         offset: 100,
-                        duration: 2000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
                 });
@@ -144,7 +144,7 @@
                         message: '添 加 角 色 中...',
                         showClose: false,
                         offset: 100,
-                        duration: 4000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
                     this.postRequest("/system/basic/permiss/role/", this.role).then(resp => {
@@ -160,7 +160,7 @@
                         message: '添 加 字 段 不 可 以 为 空...',
                         showClose: false,
                         offset: 100,
-                        duration: 4000,
+                        duration: 1500,
                         customClass: 'fontclass',
                          type: 'warning'
                     });
@@ -174,7 +174,7 @@
                     message: ' 修 改 取 消',
                     showClose: false,
                     offset: 100,
-                    duration: 2000,
+                    duration: 1500,
                     customClass: 'fontclass'
                 });
             },
@@ -184,7 +184,7 @@
                     message: ' 修 改 角 色 中...',
                     showClose: false,
                     offset: 100,
-                    duration: 2000,
+                    duration: 1500,
                     customClass: 'fontclass'
                 });
                 let tree = this.$refs.tree[index];
@@ -231,7 +231,7 @@
                         message: '角 色 权 限 信 息 加 载 中...',
                         showClose: false,
                         offset: 100,
-                        duration: 4000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
                 }, 1100);

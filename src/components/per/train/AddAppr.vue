@@ -16,7 +16,7 @@
                    :disabled="showAdvanceSearchView">
           搜索
         </el-button>
-      </div> 
+      </div>
     </div> -->
 
     <div class="content-style">
@@ -42,7 +42,7 @@
             <el-table-column prop="workid"
                              label="工号"
                              align="left"
-                             width="85">
+                             width="100">
             </el-table-column>
             <el-table-column prop="email"
                              width="180"
@@ -143,7 +143,7 @@
 
     </div>
     <!--添加弹出框-->
-    
+
     <el-dialog title="添加考评"
                :visible.sync="dialogVisibles"
                width="25%"
@@ -254,7 +254,7 @@ export default {
   methods: {
     doAddrp () {
       this.dialogVisibles = false;
-      
+
       this.doAddEmc();
 
 
@@ -307,7 +307,7 @@ export default {
           message: '添 加 考 评 中...',
           showClose: false,
           offset: 100,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass'
         });
         if (this.multipleSelection.length != 0) {
@@ -340,7 +340,7 @@ export default {
           message: '添 加 字 段 为 空!...',
           showClose: false,
           offset: 100,
-          duration: 2000,
+          duration: 1500,
           customClass: 'fontclass',
           type: 'warning'
         });
@@ -372,7 +372,7 @@ export default {
           message: '搜 索 员 工 中...',
           showClose: false,
           offset: 100,
-          duration: 2000,
+          duration: 1500,
           customClass: 'fontclass'
         });
 
@@ -382,7 +382,7 @@ export default {
           message: '搜 索 员 工 中...',
           showClose: false,
           offset: 100,
-          duration: 2000,
+          duration: 1500,
           customClass: 'fontclass'
         });
         url += "&name=" + this.keyword;
@@ -393,7 +393,7 @@ export default {
           message: ' 员 工 信 息 加 载 中...',
           showClose: false,
           offset: 50,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass'
         });
       this.getRequest(url).then(resp => {

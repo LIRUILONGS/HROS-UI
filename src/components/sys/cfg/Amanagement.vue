@@ -193,7 +193,7 @@ export default {
         message: ' 修 改 公 告 中...',
         showClose: false,
         offset: 100,
-        duration: 2000,
+        duration: 1500,
         customClass: 'fontclass'
       });
       this.putRequest("/system/cfg/", this.mainnotice).then(resp => {
@@ -218,7 +218,7 @@ export default {
           message: '删 除 公 告 中...',
           showClose: false,
           offset: 100,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass'
         });
         this.deleteRequest("/system/cfg/" + ids).then(resp => {
@@ -232,7 +232,7 @@ export default {
           message: '以 取 消 删 除 ',
           showClose: false,
           offset: 100,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass'
         });
       });
@@ -251,7 +251,7 @@ export default {
           message: '删 除 公 告 中...',
           showClose: false,
           offset: 100,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass'
         });
         this.deleteRequest("/system/cfg/" + data.id).then(resp => {
@@ -267,7 +267,7 @@ export default {
           message: '删 除 取 消',
           showClose: false,
           offset: 100,
-          duration: 2000,
+          duration: 1500,
           customClass: 'fontclass'
         });
       });

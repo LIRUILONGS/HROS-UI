@@ -1,47 +1,51 @@
 <template>
 
-  <div id="message"
-       >
-       <el-divider content-position="center" ><font style="font-weight:bold;font-size:20px;">{{currentSession.name}}</font></el-divider>
- 
-    <div style="height:380px;overflow-x: hidden;" v-scroll-bottom="sessions" >
+  <div id="message">
+    <el-divider content-position="center"><font
+        style="font-weight:bold;font-size:20px;">{{ currentSession.name }}</font></el-divider>
+
+    <div style="height:380px;overflow-x: hidden;" v-scroll-bottom="sessions">
       <!-- <el-scrollbar style="height: 100%;"  > -->
-        
-        <ul v-if="currentSession"  >
-          <li v-for="(entry,index) in sessions[user.username+'#'+currentSession.username]"
-              :key="index">
-            <p class="time">
-              <span>{{entry.date | time}}</span>
-            </p>
-            <div class="main" 
-                 :class="{self:entry.self}">
-              <img class="avatar"
-                   :src="entry.self ? user.userface : currentSession.userface"
-                   alt="">
-              <p class="text">{{entry.content}}</p>
-            </div>
-          </li>
-        </ul> 
-         <!-- </el-scrollbar> -->
+
+      <ul v-if="currentSession">
+        <li v-for="(entry,index) in sessions[user.username+'#'+currentSession.username]"
+            :key="index">
+          <p class="time">
+            <span>{{ entry.date | time }}</span>
+          </p>
+          <div class="main"
+               :class="{self:entry.self}">
+            <img class="avatar"
+                 :src="entry.self ? user.userface : currentSession.userface"
+                 alt="">
+            <p class="text">{{ entry.content }}</p>
+          </div>
+        </li>
+      </ul>
+      <!-- </el-scrollbar> -->
     </div>
- 
+
   </div>
 
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from 'vuex'
+import {mapState, mapGetters, mapActions} from 'vuex'
+
 export default {
   name: 'message',
-  data () {
+  data() {
     return {
       user: JSON.parse(window.sessionStorage.getItem("user"))
     }
   },
-  computed: { ...mapState(['sessions', 'currentSession']) },
-  mounted () { console.log(this.currentSession) },
+  computed: {...mapState(['sessions', 'currentSession'])},
+  mounted() {
+    console.log(mapState)
+    console.log(this.currentSession)
+  },
   filters: {
-    time (date) {
+    time(date) {
       if (date) {
         date = new Date(date);
       }
@@ -50,7 +54,7 @@ export default {
   },
   directives: {/*这个是vue的自定义指令,官方文档有详细说明*/
     // 发送消息后滚动到底部,这里无法使用原作者的方法，也未找到合理的方法解决，暂用setTimeout的方法模拟
-    'scroll-bottom' (el) {
+    'scroll-bottom'(el) {
       console.log(el.scrollTop);
       setTimeout(function () {
         el.scrollTop += 9999;
@@ -63,8 +67,8 @@ export default {
 
 <style lang="scss" scoped>
 .el-scrollbar__wrap {
-    width: 520px;
-    height: 400px;
+  width: 520px;
+  height: 400px;
   overflow-x: hidden;
 }
 
@@ -74,10 +78,12 @@ export default {
   background: transparent;
   // overflow-y: scroll;
   list-style: none;
+
   ul {
     list-style-type: none;
     padding-left: 0px;
     overflow-x: hidden;
+
     li {
       margin-bottom: 5px;
     }

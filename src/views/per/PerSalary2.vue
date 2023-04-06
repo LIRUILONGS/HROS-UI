@@ -1,27 +1,27 @@
 <template>
   <div>
     <div class="top-style">
-      <div style="display: flex;justify-content: flex-start;">
-        <el-input placeholder="请输入员工名进行搜索，可以直接回车搜索..."
-                  prefix-icon="el-icon-search"
-                  clearable
-                  @clear="initEmps"
-                  style="width: 350px;margin-right: 10px"
-                  v-model="keyword"
-                  @keydown.enter.native="initEmps"
-                  :disabled="showAdvanceSearchView"></el-input>
-        <el-button icon="el-icon-search"
-                   type="primary"
-                   @click="initEmps"
-                   :disabled="showAdvanceSearchView">
-          搜索
-        </el-button>
+<!--      <div style="display: flex;justify-content: flex-start;">-->
+<!--        <el-input placeholder="请输入员工名进行搜索，可以直接回车搜索..."-->
+<!--                  prefix-icon="el-icon-search"-->
+<!--                  clearable-->
+<!--                  @clear="initEmps"-->
+<!--                  style="width: 350px;margin-right: 10px"-->
+<!--                  v-model="keyword"-->
+<!--                  @keydown.enter.native="initEmps"-->
+<!--                  :disabled="showAdvanceSearchView"></el-input>-->
+<!--        <el-button icon="el-icon-search"-->
+<!--                   type="primary"-->
+<!--                   @click="initEmps"-->
+<!--                   :disabled="showAdvanceSearchView">-->
+<!--          搜索-->
+<!--        </el-button>-->
 
-      </div>
+<!--      </div>-->
 
       <div style="display: flex;justify-content: flex-end">
-       
-       
+
+
         <!--add 弹窗-->
         <el-dialog title="员工调动"
                    :visible.sync="dialogVisible"
@@ -45,7 +45,7 @@
                     </el-select>
                   </el-form-item>
                 </el-col>
-              
+
                 <el-col :span="6">
                   <el-form-item label="调动后部门:"
                                 prop="departmentid">
@@ -91,7 +91,7 @@
                     @selection-change="handleSelectionChange">
             <el-table-column type="expand">
               <template slot-scope="props">
-                <el-form 
+                <el-form
                         label-position="left" inline class="demo-table-expand">
                   <el-form-item label="性别:"
                                >
@@ -133,40 +133,40 @@
             </el-table-column>
 
             <el-table-column prop="department.name"
-                           
+
                              align="left"
                              label="所属部门">
             </el-table-column>
             <el-table-column prop="position.name"
-                            
+
                              label="职位">
             </el-table-column>
             <el-table-column prop="jobLevel.name"
-                           
+
                              label="职称">
             </el-table-column>
             <el-table-column prop="engageform"
-                            
+
                              align="left"
                              label="聘用形式">
             </el-table-column>
             <el-table-column prop="begindate"
-                            
+
                              align="left"
                              label="入职日期">
             </el-table-column>
 
             <el-table-column prop="begincontract"
-                            
+
                              align="left"
                              label="合同起始日期">
             </el-table-column>
             <el-table-column prop="endcontract"
-                           
+
                              align="left"
                              label="合同截止日期">
             </el-table-column>
-            <el-table-column 
+            <el-table-column
                              align="left"
                              label="合同期限">
               <template slot-scope="scope">
@@ -174,15 +174,15 @@
                 年
               </template>
             </el-table-column>
-            <el-table-column width="200"
-                             label="操作">
-              <template slot-scope="scope">
-                <el-button type="primary"
-                           @click="showEditEmpView(scope.row)"
-                           style="padding: 3px">调动
-                </el-button>
-              </template>
-            </el-table-column>
+<!--            <el-table-column width="200"-->
+<!--                             label="操作">-->
+<!--              <template slot-scope="scope">-->
+<!--                <el-button type="primary"-->
+<!--                           @click="showEditEmpView(scope.row)"-->
+<!--                           style="padding: 3px">调动-->
+<!--                </el-button>-->
+<!--              </template>-->
+<!--            </el-table-column>-->
           </el-table>
         </div>
       </el-scrollbar>
@@ -591,6 +591,8 @@ export default {
     },
     /*初始化搜索处理*/
     initEmps (type) {
+      let user = JSON.parse(window.sessionStorage.getItem("user"));
+      this.keyword = user.name;
       this.loading = true;
       let url = '/employee/basic/?page=' + this.page + '&size=' + this.size;
       if (type && type == 'advanced') {

@@ -134,7 +134,7 @@
                         message: '搜 索 职 位 中...',
                         showClose: false,
                         offset: 100,
-                        duration: 2000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
                     this.jl.name = this.jl.searchname;
@@ -152,7 +152,7 @@
                         message: '搜 索 字 段 不 可 以 为 空!...',
                         showClose: false,
                         offset: 100,
-                        duration: 2000,
+                        duration: 1500,
                         customClass: 'fontclass',
                         type: 'warning'
                     });
@@ -173,7 +173,7 @@
                         message: '删 除 职 位 中...',
                         showClose: false,
                         offset: 100,
-                        duration: 4000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
                     this.deleteRequest("/system/basic/joblevel/" + ids).then(resp => {
@@ -187,7 +187,7 @@
                         message: '以 取 消 删 除 ',
                         showClose: false,
                         offset: 100,
-                        duration: 4000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
                 });
@@ -199,7 +199,7 @@
                     message: '以 取 消 修 改 职 位 ',
                     showClose: false,
                     offset: 100,
-                    duration: 2000,
+                    duration: 1500,
                     customClass: 'fontclass'
                 });
             },
@@ -209,7 +209,7 @@
                     message: ' 修 改 职 位 中...',
                     showClose: false,
                     offset: 100,
-                    duration: 2000,
+                    duration: 1500,
                     customClass: 'fontclass'
                 });
                 this.putRequest("/system/basic/joblevel/", this.updateJl).then(resp => {
@@ -263,7 +263,7 @@
                         message: '添 加 职 位 中...',
                         showClose: false,
                         offset: 100,
-                        duration: 4000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
                     this.postRequest("/system/basic/joblevel/", this.jl).then(resp => {
@@ -277,7 +277,7 @@
                         message: '添 加 字 段 不 可 以 为 空...',
                         showClose: false,
                         offset: 100,
-                        duration: 4000,
+                        duration: 1500,
                         customClass: 'fontclass',
                         type: 'warning'
                     });
@@ -291,16 +291,17 @@
                         message: '职 称 信 息 加 载 中...',
                         showClose: false,
                         offset: 100,
-                        duration: 4000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
                 }, 1000);
 
                 this.loading = true;
-                this.getRequest("/system/basic/joblevel/").then(resp => {
+                this.getRequest("/system/basic/joblevel/all").then(resp => {
                     this.loading = false;
                     if (resp) {
-                        this.jls = resp;
+                      window.sessionStorage.removeItem("joblevels");
+                      this.jls = resp;
                         this.jl = {
                             name: '',
                             titleLevel: ''

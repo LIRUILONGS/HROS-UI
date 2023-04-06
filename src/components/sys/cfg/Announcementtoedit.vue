@@ -88,7 +88,7 @@ export default {
           message: '添 加 添 加 中...',
           showClose: false,
           offset: 100,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass'
         });
         this.loading = true;
@@ -109,7 +109,7 @@ export default {
           message: '公 告 信 息 不 能 为 空...',
           showClose: false,
           offset: 100,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass',
           type: 'warning'
         });
