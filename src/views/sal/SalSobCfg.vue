@@ -16,6 +16,11 @@
                    :disabled="showAdvanceSearchView">
           搜索
         </el-button>
+        <el-button type="success"
+                   @click="exportData"
+                   icon="el-icon-download">
+          导出数据
+        </el-button>
       </div>
     </div>
  
@@ -199,6 +204,9 @@ export default {
       this.size = currentSize;
       this.initEmps();
     },
+    exportData () {
+      window.open('/salary/table/export', '_parent');
+    },
     currentChange (currentPage) {
       this.page = currentPage;
       this.initEmps();
@@ -210,7 +218,7 @@ export default {
             message: ' 修 改 工 资 套 账 中...',
             showClose: false,
             offset: 100,
-            duration: 2000,
+            duration: 1500,
             customClass: 'fontclass'
           });
         this.putRequest('/salary/sobcfg/?eid=' + data.id + '&sid=' + this.currentSalary).then(resp => {
@@ -241,7 +249,7 @@ export default {
           message: '工 资 套 账 信 息 加 载 中...',
           showClose: false,
           offset: 100,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass'
         });
       }, 1100);

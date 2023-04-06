@@ -7,8 +7,8 @@
              class="logContainer"
              ref="loginFrom"
              @keydown.enter.native="loginSubmit">
-      <h2 class="logtitle"><i class="fa fa-drupal fa-2x"
-             style="color: #505458" />&nbsp;人 事 管 理</h2>
+      <h2 class="logtitle"><i class="fa fa-magnet fa-2x"
+             style="color: #505458" />智 慧&nbsp;人 事 管 理</h2>
       <el-form-item prop="username">
         <el-input type="text"
                   v-model="loginFrom.username"
@@ -73,7 +73,7 @@ export default {
       rules: {
         username: [
           { required: true, message: '请输入用户名', trigger: 'blur' },
-          { min: 5, max: 25, message: '长度在 5 到 25 个字符', trigger: 'blur' }
+          { min: 1, max: 25, message: '长度在 1 到 25 个字符', trigger: 'blur' }
         ],
         password: [
           { required: true, message: '请输入密码', trigger: blur() },
@@ -153,7 +153,7 @@ export default {
     width: 100%;
     height: 100%;
     position: fixed;
-   background-image: url(../assets/images/timg.jpg); 
+   background-image: url(../assets/images/timg.jpg);
 }
 .logContainer {
   /* //圆角边框*/

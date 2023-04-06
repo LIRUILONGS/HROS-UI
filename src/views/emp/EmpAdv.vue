@@ -90,7 +90,7 @@
                              fixed
                              label="工号"
                              align="left"
-                             width="85">
+                             width="100">
             </el-table-column>
 
             <el-table-column label="培训信息">
@@ -355,7 +355,7 @@ export default {
         message: '搜 索 员 工 中...',
         showClose: false,
         offset: 100,
-        duration: 2000,
+        duration: 1500,
         customClass: 'fontclass'
       });
         url += "&name=" + this.keyword;
@@ -366,7 +366,7 @@ export default {
                         message: '高 级 信 息 加 载 中...',
                         showClose: false,
                         offset: 100,
-                        duration: 4000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
       this.getRequest(url).then(resp => {

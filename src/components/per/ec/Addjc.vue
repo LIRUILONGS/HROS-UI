@@ -31,18 +31,18 @@
                     :customClass="loadingstyle"
                     style="width: 100%;height: 645px"
                     @selection-change="handleSelectionChange">
-           
-            <el-table-column 
+
+            <el-table-column
                              prop="name"
                              align="left"
                              label="姓名"
                              width="100">
             </el-table-column>
             <el-table-column prop="workid"
-                             
+
                              label="工号"
                              align="left"
-                             width="85">
+                             width="100">
             </el-table-column>
             <el-table-column prop="email"
                              width="180"
@@ -68,26 +68,26 @@
                              label="职称">
             </el-table-column>
             <el-table-column prop="begindate"
-                           
+
                              align="left"
                              label="入职日期">
             </el-table-column>
             <el-table-column prop="conversiontime"
-                          
+
                              align="left"
                              label="转正日期">
             </el-table-column>
            <el-table-column prop="begincontract"
-                            
+
                              align="left"
                              label="合同起始日期">
             </el-table-column>
             <el-table-column prop="endcontract"
-                            
+
                              align="left"
                              label="合同截止日期">
             </el-table-column>
-            <el-table-column 
+            <el-table-column
                              align="left"
                              label="合同期限">
               <template slot-scope="scope">
@@ -99,14 +99,14 @@
                              label="操作"
                                >
               <template slot-scope="scope">
-                <el-button 
+                <el-button
                            type="primary"
                            @click="showEditEmpView(scope.row)"
                            style="padding: 3px">添加奖惩
                 </el-button>
               </template>
             </el-table-column>
-        
+
           </el-table>
         </div>
       </el-scrollbar>
@@ -132,7 +132,7 @@
                    :button-texts="['删除', '添加']"
                    :data="data">
       </el-transfer>
-      
+
       <el-input type="textarea"
                 placeholder="奖惩原因描述"
                 v-model="employeeec.ecreason"
@@ -162,7 +162,7 @@
 <script>
 export default {
   name: "Addjc",
-inject: ["reload"],
+  inject: ["reload"],
   data () {
     return {
       data: [],
@@ -219,7 +219,7 @@ inject: ["reload"],
           message: '删 除 员 工 中...',
           showClose: false,
           offset: 100,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass'
         });
         let ids = '?';
@@ -237,7 +237,7 @@ inject: ["reload"],
           message: '以 取 消 删 除 ',
           showClose: false,
           offset: 100,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass'
         });
       });
@@ -256,17 +256,17 @@ inject: ["reload"],
               message: '添 加 奖 惩 中...',
               showClose: false,
               offset: 100,
-              duration: 4000,
+              duration: 1500,
               customClass: 'fontclass'
             });
-         
+
             let url = "/personnel/ec/?eid=" + this.employeeec.eid +"&ecreason="+ this.employeeec.ecreason +"&remark="+this.employeeec.remark;
             this.value.forEach((id) =>{
               url+="&ids="+id;
             })
             this.getRequest(url).then(resp => {
               if (resp) {
-                
+
                 this.value =[];
                 this.employeeec = [];
                  this.reload();
@@ -278,7 +278,7 @@ inject: ["reload"],
           message: '添 加 字 段 为 空!...',
           showClose: false,
           offset: 100,
-          duration: 2000,
+          duration: 1500,
           customClass: 'fontclass',
           type: 'warning'
         });
@@ -299,7 +299,7 @@ inject: ["reload"],
       this.page = currentPage;
       this.initEmps();
     },
-  
+
     /*初始化搜索处理*/
     initEmps (type) {
       this.loading = true;
@@ -310,7 +310,7 @@ inject: ["reload"],
           message: '搜 索 员 工 中...',
           showClose: false,
           offset: 100,
-          duration: 2000,
+          duration: 1500,
           customClass: 'fontclass'
         });
 
@@ -320,14 +320,14 @@ inject: ["reload"],
           message: '搜 索 员 工 中...',
           showClose: false,
           offset: 100,
-          duration: 2000,
+          duration: 1500,
           customClass: 'fontclass'
         });
         url += "&name=" + this.keyword;
       }
       /*数据 返回*/
-     
-       
+
+
       this.getRequest(url).then(resp => {
         this.loading = false;
         if (resp) {
@@ -346,7 +346,7 @@ inject: ["reload"],
           message: '奖 罚 规 则 信 息 加 载 中...',
           showClose: false,
           offset: 100,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass'
         });
       }, 1200)

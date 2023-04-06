@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="top-style">
+    <div class="top-style" v-show="!keywordFrom" >
       <div style="display: flex;justify-content: flex-start;">
         <el-input placeholder="请输入员工名进行搜索，可以直接回车搜索..."
                   prefix-icon="el-icon-search"
@@ -42,7 +42,7 @@
                              fixed
                              label="工号"
                              align="left"
-                             width="85">
+                             width="100">
             </el-table-column>
             <el-table-column prop="email"
                              width="180"
@@ -88,7 +88,7 @@
             </el-table-column>
             <el-table-column align="left"
                              width="150"
-                             label="操作">
+                             label="操作"  v-if="!keywordFrom">
               <template slot-scope="scope">
                 <el-button @click="showEditEmpView(scope.row)"
                            style="padding: 3px">编辑
@@ -176,6 +176,13 @@
 <script>
 export default {
   name: "Magtrain",
+  props: {
+    //父组件传来的值需定义一下
+    keywordFrom: {
+      type: Boolean, //类型
+      default: false
+    },
+  },
 
   data () {
 
@@ -232,7 +239,7 @@ export default {
           message: '删 除 培 训 中...',
           showClose: false,
           offset: 100,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass'
         });
         this.deleteRequest("/personnel/train/" + data.employeetrainList.eid + "/" + data.employeetrainList.id).then(resp => {
@@ -246,7 +253,7 @@ export default {
           message: '以 取 消 删 除 ',
           showClose: false,
           offset: 100,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass'
         });
       });
@@ -265,7 +272,7 @@ export default {
           message: '修 改 培 训 中...',
           showClose: false,
           offset: 100,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass'
         });
 
@@ -282,7 +289,7 @@ export default {
           message: '添 加 字 段 为 空!...',
           showClose: false,
           offset: 100,
-          duration: 2000,
+          duration: 1500,
           customClass: 'fontclass',
           type: 'warning'
         });
@@ -322,6 +329,10 @@ export default {
 
     /*初始化搜索处理*/
     initEmps () {
+      if (this.keywordFrom){
+       let user = JSON.parse(window.sessionStorage.getItem("user"));
+        this.keyword = user.name;
+      }
       this.loading = true;
       let url = '/personnel/train/?page=' + this.page + '&size=' + this.size;
       if (this.keyword) {
@@ -330,7 +341,7 @@ export default {
           message: '搜 索 员 工 中...',
           showClose: false,
           offset: 100,
-          duration: 2000,
+          duration: 1500,
           customClass: 'fontclass'
         });
         url += "&name=" + this.keyword;
@@ -341,7 +352,7 @@ export default {
           message: ' 培 训 信 息 加 载 中...',
           showClose: false,
           offset: 150,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass'
         });
       this.getRequest(url).then(resp => {

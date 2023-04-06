@@ -132,29 +132,29 @@
       </div>
 
       <div style="display: flex;justify-content: flex-end">
-        <el-upload :show-file-list="false"
-                   :before-upload="beforeUpload"
-                   :on-success="onSuccess"
-                   :on-error="onError"
-                   :disabled="importDataDisabled"
-                   style="display: inline-flex;margin-right: 8px"
-                   action="/employee/basic/import">
-          <el-button :disabled="importDataDisabled"
-                     type="success"
-                     :icon="importDataBtnIcon">
-            {{ importDataBtnText }}
-          </el-button>
-        </el-upload>
-        <el-button type="success"
-                   @click="exportData"
-                   icon="el-icon-download">
-          导出数据
-        </el-button>
-        <el-button type="primary"
-                   icon="el-icon-plus"
-                   @click="showAddEmpView">
-          添加用户
-        </el-button>
+<!--        <el-upload :show-file-list="false"-->
+<!--                   :before-upload="beforeUpload"-->
+<!--                   :on-success="onSuccess"-->
+<!--                   :on-error="onError"-->
+<!--                   :disabled="importDataDisabled"-->
+<!--                   style="display: inline-flex;margin-right: 8px"-->
+<!--                   action="/employee/basic/import">-->
+<!--          <el-button :disabled="importDataDisabled"-->
+<!--                     type="success"-->
+<!--                     :icon="importDataBtnIcon">-->
+<!--            {{ importDataBtnText }}-->
+<!--          </el-button>-->
+<!--        </el-upload>-->
+<!--        <el-button type="success"-->
+<!--                   @click="exportData"-->
+<!--                   icon="el-icon-download">-->
+<!--          导出数据-->
+<!--        </el-button>-->
+<!--        <el-button type="primary"-->
+<!--                   icon="el-icon-plus"-->
+<!--                   @click="showAddEmpView">-->
+<!--          添加用户-->
+<!--        </el-button>-->
         <!--add 弹窗-->
         <el-dialog :title="title"
                    :visible.sync="dialogVisible"
@@ -577,22 +577,22 @@
                 年
               </template>
             </el-table-column>
-            <el-table-column fixed="right"
-                             width="150"
-                             label="操作">
-              <template slot-scope="scope">
-                <el-button
-                    @click="showEditEmpView(scope.row)"
-                    style="padding: 3px">编辑
-                </el-button>
-                <el-button
-                    @click="deleteEmp(scope.row)"
-                    style="padding: 3px"
-                    type="danger">
-                  删除
-                </el-button>
-              </template>
-            </el-table-column>
+<!--            <el-table-column fixed="right"-->
+<!--                             width="150"-->
+<!--                             label="操作">-->
+<!--              <template slot-scope="scope">-->
+<!--                <el-button-->
+<!--                    @click="showEditEmpView(scope.row)"-->
+<!--                    style="padding: 3px">编辑-->
+<!--                </el-button>-->
+<!--                <el-button-->
+<!--                    @click="deleteEmp(scope.row)"-->
+<!--                    style="padding: 3px"-->
+<!--                    type="danger">-->
+<!--                  删除-->
+<!--                </el-button>-->
+<!--              </template>-->
+<!--            </el-table-column>-->
           </el-table>
         </div>
       </el-scrollbar>
@@ -620,7 +620,7 @@
 
 <script>
 export default {
-  name: "EmpBasic",
+  name: "EmpBasic2",
   data() {
     return {
       multipleSelection: [],
@@ -672,7 +672,7 @@ export default {
         phone: "18565558897",
         address: "内蒙古呼和浩特",
         departmentid: 29,
-        joblevelid: "",
+        joblevelid: 9,
         posid: 29,
         engageform: "劳务合同",
         tiptopdegree: "本科",
@@ -828,7 +828,7 @@ export default {
         gender: "男",
         birthday: "1998-10-08",
         idcard: "",
-        wedlock: "未婚",
+        wedlock: "未知",
         nationid: 1,
         nativeplace: "",
         politicid: 3,
@@ -836,8 +836,8 @@ export default {
         phone: "",
         address: "",
         departmentid: 8,
-        joblevelid: "",
-        posid: "",
+        joblevelid: 9,
+        posid: 29,
         engageform: "",
         tiptopdegree: "",
         specialty: "",

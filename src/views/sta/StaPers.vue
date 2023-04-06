@@ -28,7 +28,7 @@
 
 
 
-<script> 
+<script>
 export default {
   name: "StaPers",
   data () {
@@ -100,15 +100,15 @@ export default {
           }
         },
         {
-          title: "民族分布",
-          chartSettings: {
-            radius: 200,
-            offsetY: 350,
-          },
-          chartData: {
-            columns: ["name", "sum"],
-            rows: []
-          }
+          // title: "民族分布",
+          // chartSettings: {
+          //   radius: 200,
+          //   offsetY: 350,
+          // },
+          // chartData: {
+          //   columns: ["name", "sum"],
+          //   rows: []
+          // }
         },
         {
           title: "党派分布",
@@ -189,13 +189,13 @@ export default {
       });
     },
     initnation () {
-      this.getRequest("/statistics/personnel/nation").then(resp => {
-        if (resp) {
-          this.datas[5].chartData.columns = ["name", "sum"];
-          this.datas[5].chartData.rows = resp;
-         
-        }
-      });
+      // this.getRequest("/statistics/personnel/nation").then(resp => {
+      //   if (resp) {
+      //     this.datas[5].chartData.columns = ["name", "sum"];
+      //     this.datas[5].chartData.rows = resp;
+      //
+      //   }
+      // });
     },
     initpins () {
       this.getRequest("/statistics/personnel/politicsstatus").then(resp => {

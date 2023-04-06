@@ -27,7 +27,7 @@ const store = new Vuex.Store({
         INIT_CURRENTHR(state, hr) {
             state.currentHr = hr;
         },
-       
+
         changeCurrentSession(state, currentSession) {
           //  console.log(currentSession);
             Vue.set(state.isDot, state.currentHr.username + '#' + currentSession.username, false);
@@ -55,6 +55,7 @@ const store = new Vuex.Store({
             }
         },
         INIT_HR(state, data) {
+            console.log(data)
             state.hrs = data;
         }
     },

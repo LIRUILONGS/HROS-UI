@@ -144,7 +144,7 @@
                     message: '删 除 职 位 中...',
                     showClose: false,
                     offset: 100,
-                    duration: 4000,
+                    duration: 1500,
                     customClass: 'fontclass'
                 });
                 this.deleteRequest("/system/basic/rp/" + ids).then(resp => {
@@ -158,7 +158,7 @@
                     message: '以 取 消 删 除 ',
                     showClose: false,
                     offset: 100,
-                    duration: 4000,
+                    duration: 1500,
                     customClass: 'fontclass'
                 });
             });
@@ -175,7 +175,7 @@
                     message: '已 取 消 修 改...',
                     showClose: false,
                     offset: 100,
-                    duration: 2000,
+                    duration: 1500,
                     customClass: 'fontclass'
                 });
                 this.dialogVisible = false;
@@ -186,7 +186,7 @@
                     message: '更 新 职 位 中...',
                     showClose: false,
                     offset: 100,
-                    duration: 2000,
+                    duration: 1500,
                     customClass: 'fontclass'
                 });
 
@@ -213,7 +213,7 @@
                         message: '搜 索 字 段 不 可 以 为 空!...',
                         showClose: false,
                         offset: 100,
-                        duration: 2000,
+                        duration: 1500,
                         customClass: 'fontclass',
                         type: 'warning'
                     });
@@ -286,7 +286,7 @@
                         message: '添 加 奖 惩 规 则 中...',
                         showClose: false,
                         offset: 100,
-                        duration: 4000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
                     this.postRequest("/system/basic/rp/", this.rp).then(resp => {
@@ -303,7 +303,7 @@
                         message: '添 加 字 段 不 可 以 为 空!',
                         showClose: false,
                         offset: 100,
-                        duration: 2000,
+                        duration: 1500,
                         customClass: 'fontclass',
                         type: 'warning'
                     });
@@ -323,7 +323,7 @@
                         message: '奖 罚 规 则 信 息 加 载 中...',
                         showClose: false,
                         offset: 100,
-                        duration: 4000,
+                        duration: 1500,
                         customClass: 'fontclass'
                     });
                 }, 1200)

@@ -168,7 +168,7 @@ export default {
         message: '已 取 消 修 改...',
         showClose: false,
         offset: 100,
-        duration: 2000,
+        duration: 1500,
         customClass: 'fontclass'
       });
       this.dialogVisible = false;
@@ -202,7 +202,7 @@ export default {
           message: '添 加 部 门 中...',
           showClose: false,
           offset: 100,
-          duration: 2000,
+          duration: 1500,
           customClass: 'fontclass'
         });
         this.postRequest("/system/basic/department/", this.dep).then(resp => {
@@ -211,6 +211,7 @@ export default {
             this.dialogVisible = false;
             //初始化变量
             this.initDep();
+            window.sessionStorage.removeItem("deps");
           }
         });
       } else {
@@ -219,7 +220,7 @@ export default {
           message: '添 加 部 门 字 段 不 可 以 为 空...',
           showClose: false,
           offset: 100,
-          duration: 2000,
+          duration: 1500,
           customClass: 'fontclass',
           type: 'warning'
         });
@@ -246,7 +247,7 @@ export default {
           message: '父 部 门 删 除 失 败',
           showClose: false,
           offset: 100,
-          duration: 2000,
+          duration: 1500,
           customClass: 'fontclass',
           type: "error"
         });
@@ -261,7 +262,7 @@ export default {
             message: '删 除 部 门 中...',
             showClose: false,
             offset: 100,
-            duration: 2000,
+            duration: 1500,
             customClass: 'fontclass'
           });
           this.deleteRequest("/system/basic/department/" + data.id).then(resp => {
@@ -275,7 +276,7 @@ export default {
             message: '以 取 消 删 除...',
             showClose: false,
             offset: 100,
-            duration: 2000,
+            duration: 1500,
             customClass: 'fontclass'
           });
         });
@@ -295,7 +296,7 @@ export default {
           message: '部 门 信 息 加 载 中...',
           showClose: false,
           offset: 100,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass'
         });
       }, 1300);
@@ -304,6 +305,7 @@ export default {
           this.deps = resp;
           this.chartData.rows[0].value = this.deps;
           this.loading = false;
+          window.sessionStorage.setItem("deps", JSON.stringify(resp));
         }
       })
     },

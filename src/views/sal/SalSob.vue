@@ -130,6 +130,7 @@
                 <el-input v-model="salary.pensionper"></el-input>
               </el-form-item>
             </el-col>
+
             <el-col :span="6">
               <el-form-item prop="medicalper"
                             label="医疗保险比率">
@@ -144,6 +145,12 @@
             </el-col>
           </el-row>
           <el-row :gutter="10">
+            <el-col :span="6">
+              <el-form-item prop="pensionbase"
+                            label="养老金基数">
+                <el-input v-model.number="salary.pensionbase"></el-input>
+              </el-form-item>
+            </el-col>
             <el-col :span="6">
               <el-form-item prop="accumulationfundper"
                             label="公积金比率">
@@ -283,7 +290,7 @@ export default {
           message: '删 除 取 消',
           showClose: false,
           offset: 100,
-          duration: 2000,
+          duration: 1500,
           customClass: 'fontclass'
         });
       })
@@ -306,7 +313,7 @@ export default {
             message: ' 修 改 套 账 中...',
             showClose: false,
             offset: 100,
-            duration: 2000,
+            duration: 1500,
             customClass: 'fontclass'
           });
           this.putRequest("/salary/sob/", this.salary).then(resp => {
@@ -321,7 +328,7 @@ export default {
             message: '以 取 消 删 除 ',
             showClose: false,
             offset: 100,
-            duration: 4000,
+            duration: 1500,
             customClass: 'fontclass'
           });
         }
@@ -335,7 +342,7 @@ export default {
             message: ' 修 改 套 账 中...',
             showClose: false,
             offset: 100,
-            duration: 2000,
+            duration: 1500,
             customClass: 'fontclass'
           });
           this.putRequest("/salary/sob/", this.salary).then(resp => {
@@ -350,7 +357,7 @@ export default {
             message: '添 加 工 资 套 账 中...',
             showClose: false,
             offset: 100,
-            duration: 4000,
+            duration: 1500,
             customClass: 'fontclass'
           });
           this.postRequest("/salary/sob/", this.salary).then(resp => {
@@ -390,7 +397,7 @@ export default {
           message: '工 资 套 账 信 息 加 载 中...',
           showClose: false,
           offset: 100,
-          duration: 4000,
+          duration: 1500,
           customClass: 'fontclass'
         });
       }, 1100);

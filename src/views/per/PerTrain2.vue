@@ -3,22 +3,14 @@
     <template>
       <el-tabs v-model="activeName"
                @tab-click="handleClick">
-        <el-tab-pane label="添加培训"
-                     name="Addtrain">
-          <Addtrain></Addtrain>
-        </el-tab-pane>
 
         <el-tab-pane label="培训管理"
                      name="Magtrain">
-          <Magtrain></Magtrain>
-        </el-tab-pane>
-          <el-tab-pane label="添加考评"
-                     name="AddAppr">
-          <AddAppr></AddAppr>
+          <Magtrain :keyword-from="true"></Magtrain>
         </el-tab-pane>
         <el-tab-pane label="考评管理"
                      name="MagAppr">
-          <MagAppr></MagAppr>
+          <MagAppr :keyword-from="true"></MagAppr>
         </el-tab-pane>
       </el-tabs>
     </template>
@@ -26,26 +18,20 @@
 </template>
 
 <script>
-import Addtrain from "../../components/per/train/Addtrain.vue";
-import AddAppr from "../../components/per/train/AddAppr.vue";
 import Magtrain from "../../components/per/train/Magtrain.vue";
 import MagAppr from "../../components/per/train/MagAppr.vue";
 export default {
-  name: "PerTrain",
+  name: "PerTrain2",
   data () {
     return {
-      activeName: 'Addtrain',
+      activeName: 'Magtrain',
       data: {},
     }
   },
   methods: {
-    handleClick(){
-      console.log("")
-    }
+
   },
   components: {
-    Addtrain,
-    AddAppr,
     Magtrain,
     MagAppr,
   }

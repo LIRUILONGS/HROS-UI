@@ -1,23 +1,23 @@
 <template>
   <div>
     <div class="top-style">
-      <div style="display: flex;justify-content: flex-start;">
-        <el-input placeholder="请输入员工名进行搜索，可以直接回车搜索..."
-                  prefix-icon="el-icon-search"
-                  clearable
-                  @clear="initEmps"
-                  style="width: 350px;margin-right: 10px"
-                  v-model="keyword"
-                  @keydown.enter.native="initEmps"
-                  :disabled="showAdvanceSearchView"></el-input>
-        <el-button icon="el-icon-search"
-                   type="primary"
-                   @click="initEmps"
-                   :disabled="showAdvanceSearchView">
-          搜索
-        </el-button>
+<!--      <div style="display: flex;justify-content: flex-start;">-->
+<!--        <el-input placeholder="请输入员工名进行搜索，可以直接回车搜索..."-->
+<!--                  prefix-icon="el-icon-search"-->
+<!--                  clearable-->
+<!--                  @clear="initEmps"-->
+<!--                  style="width: 350px;margin-right: 10px"-->
+<!--                  v-model="keyword"-->
+<!--                  @keydown.enter.native="initEmps"-->
+<!--                  :disabled="showAdvanceSearchView"></el-input>-->
+<!--        <el-button icon="el-icon-search"-->
+<!--                   type="primary"-->
+<!--                   @click="initEmps"-->
+<!--                   :disabled="showAdvanceSearchView">-->
+<!--          搜索-->
+<!--        </el-button>-->
 
-      </div>
+<!--      </div>-->
 
       <div style="display: flex;justify-content: flex-end">
 
@@ -174,16 +174,16 @@
                 年
               </template>
             </el-table-column>
-            <el-table-column width="200"
-                             align="center"
-                             label="操作">
-              <template slot-scope="scope">
-                <el-button type="primary"
-                           @click="showEditEmpView(scope.row)"
-                           style="padding: 3px">调 动
-                </el-button>
-              </template>
-            </el-table-column>
+<!--            <el-table-column width="200"-->
+<!--                             align="center"-->
+<!--                             label="操作">-->
+<!--              <template slot-scope="scope">-->
+<!--                <el-button type="primary"-->
+<!--                           @click="showEditEmpView(scope.row)"-->
+<!--                           style="padding: 3px">调 动-->
+<!--                </el-button>-->
+<!--              </template>-->
+<!--            </el-table-column>-->
           </el-table>
         </div>
       </el-scrollbar>
@@ -453,6 +453,8 @@ tableRowClassName({row, rowIndex}) {
     },
     /*初始化搜索处理*/
     initEmps () {
+      let user = JSON.parse(window.sessionStorage.getItem("user"));
+      this.keyword = user.name;
       this.loading = true;
       let url = '/personnel/remove/?page=' + this.page + '&size=' + this.size;
       if (this.keyword) {

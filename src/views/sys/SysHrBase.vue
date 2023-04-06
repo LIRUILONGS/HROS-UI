@@ -2,21 +2,6 @@
   <div>
     <!--弹性盒子元素在主轴（横轴）方向上的对齐方式。-->
     <div style="display: flex;justify-content: center;margin-top: 10px">
-      <el-input class="addPosInput"
-                placeholder="请输入用户名进行搜索..."
-                prefix-icon="el-icon-search"
-                v-model="name"
-                @keyup.enter.native="searchname">
-      </el-input>
-      <el-button icon="el-icon-search"
-                 type="primary"
-                 @click="searchname">搜索
-      </el-button>
-      <el-button type="primary"
-                 icon="el-icon-plus"
-                 @click="showAddHrView">
-        添加用户
-      </el-button>
     </div>
 
     <div class="center-right-infinite-lists"
@@ -70,18 +55,18 @@
                               title="角色列表"
                               width="200"
                               trigger="click">
-                              <template>
-                    <el-select v-model="selectroles"
-                               multiple
-                               :popper-append-to-body="false"
-                               placeholder="请选择">
-                      <el-option v-for="(item, index) in roles"
-                                 :key="index"
-                                 :label="item.namezh"
+                    <template>
+                      <el-select v-model="selectroles"
+                                 multiple disabled
+                                 :popper-append-to-body="false"
+                                 placeholder="请选择">
+                        <el-option v-for="(item, index) in roles"
+                                   :key="index"
+                                   :label="item.namezh"
 
-                                 :value="item.id">
-                      </el-option>
-                    </el-select>
+                                   :value="item.id">
+                        </el-option>
+                      </el-select>
                     </template>
                     <el-button icon="el-icon-edit"
                                type="text"
@@ -90,6 +75,11 @@
                 </div>
                 <div>备注：{{ hr.remark }}</div>
               </div>
+              <el-button type="primary"
+                         icon="el-icon-plus"
+                         @click="showAddHrView">
+                修改密码
+              </el-button>
             </div>
           </el-card>
         </div>
@@ -101,33 +91,17 @@
                :visible.sync="dialogVisible"
                width="20%">
       <div style="margin-top: 20px;font-size: 16px;lineHeight:2">
-        <div><el-input prefix-icon="el-icon-edit"
-                       v-model="addHr.username"
-                       placeholder="用户名"></el-input></div>
-        <div><el-input prefix-icon="el-icon-edit"
-                       v-model="addHr.name"
-                       placeholder="昵称"></el-input></div>
-        <div><el-input prefix-icon="el-icon-edit"
-                       v-model="addHr.phone"
-                       placeholder="手机号码"></el-input></div>
-        <div><el-input prefix-icon="el-icon-edit"
-                       v-model="addHr.telephone"
-                       placeholder="电话号码"></el-input></div>
-        <div><el-input prefix-icon="el-icon-edit"
-                       v-model="addHr.address"
-                       placeholder="地 址"></el-input></div>
-        <div><el-input prefix-icon="el-icon-edit"
-                       v-model="addHr.userface"
-                       placeholder="头像地址"></el-input></div>
-        <div>用户状态：
-          <el-switch v-model="addHr.enabled"
-                     active-color="#13ce66"
-                     inactive-color="#ff4949"
-          ></el-switch>
+
+        <div>
+          <el-input prefix-icon="el-icon-edit"
+                    v-model="repss.password"
+                    placeholder="密码"></el-input>
         </div>
-        <div><el-input prefix-icon="el-icon-edit"
-                       v-model="addHr.remark"
-                       placeholder="备注"></el-input></div>
+        <div>
+          <el-input prefix-icon="el-icon-edit"
+                    v-model="repss.rePassword" type="password"
+                    placeholder="新密码"></el-input>
+        </div>
       </div>
       <span slot="footer"
             class="dialog-footer">
@@ -149,14 +123,18 @@ export default {
       selectroles: [],
       loading: false,
       dialogVisible: false,
-      title:'',
-      addHr:  {
+      title: '',
+      addHr: {
         name: '',
         username: '',
         phone: '',
         telephone: '',
         address: '',
         enabled: false,
+      },
+      repss: {
+        password: "",
+        rePassword: ""
       }
     }
   },
@@ -173,25 +151,45 @@ export default {
         telephone: '',
         address: '',
         enabled: false,
+      };
+      this.repss = {
+        password: "",
+        rePassword: ""
       }
     },
-    doAddHr (){
+    doAddHr() {
       this.$notify.success({
-        title: '添加讯息',
-        message: '添 加 操 作 人 中...',
+        title: '修改密码',
+        message: '修 改 操 作 人 中...',
         showClose: false,
         offset: 100,
         duration: 1500,
         customClass: 'fontclass'
       });
-      this.postRequest("/system/hr/add", this.addHr).then(resp => {
+      this.postRequest("/system/hr/modifyPass", this.repss).then(resp => {
         if (resp) {
           this.dialogVisible = false;
-          this.inithrs();
+          this.$notify.success({
+            title: '修改密码',
+            message: '修改成功',
+            showClose: false,
+            offset: 100,
+            duration: 1500,
+            customClass: 'fontclass'
+          });
+        } else {
+          this.$notify.error({
+            title: '修改密码',
+            message: '密码错误 请重试',
+            showClose: false,
+            offset: 100,
+            duration: 1500,
+            customClass: 'fontclass'
+          });
         }
       })
     },
-    cancel(){
+    cancel() {
       this.dialogVisible = false;
       this.$notify.info({
         title: '修改讯息',
@@ -204,7 +202,7 @@ export default {
     },
     showAddHrView() {
       this.emptyHr();
-      this.title = '添加操作人';
+      this.title = '修改密码';
       this.dialogVisible = true;
     },
     deletehr(hr) {
@@ -286,27 +284,27 @@ export default {
         }
       });
     },
-    hiderol(hr) {
-      let url = "/system/hr/role?" + "hrid=" + hr.id;
-      this.selectroles.forEach(id => {
-        url += "&rids=" + id;
-      })
-      url += "&rids";
-      this.selectroles = null;
-      this.$notify.success({
-        title: '修改讯息',
-        message: '用 户 信 息 修 改 中...',
-        showClose: false,
-        offset: 200,
-        duration: 1500,
-        customClass: 'fontclasssysuser'
-      });
-      this.putRequest(url).then(resp => {
-        if (resp) {
-          this.inithrs();
-        }
-      });
-    },
+    // hiderol(hr) {
+    //   let url = "/system/hr/role?" + "hrid=" + hr.id;
+    //   this.selectroles.forEach(id => {
+    //     url += "&rids=" + id;
+    //   })
+    //   url += "&rids";
+    //   this.selectroles = null;
+    //   this.$notify.success({
+    //     title: '修改讯息',
+    //     message: '用 户 信 息 修 改 中...',
+    //     showClose: false,
+    //     offset: 200,
+    //     duration: 1500,
+    //     customClass: 'fontclasssysuser'
+    //   });
+    //   this.putRequest(url).then(resp => {
+    //     if (resp) {
+    //       this.inithrs();
+    //     }
+    //   });
+    // },
     showrol(hr) {
       //  this.initroles();
       let roles = hr.roles;
@@ -334,7 +332,7 @@ export default {
         });
       }, 900)
       this.loading = true;
-      this.getRequest("/system/hr/?name=" + this.name).then(resp => {
+      this.getRequest("/system/hr/base").then(resp => {
         if (resp) {
           this.hrs = resp;
           this.loading = false;
